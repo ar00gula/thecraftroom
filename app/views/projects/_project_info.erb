@@ -1,0 +1,6 @@
+ <%= p.description %><br>
+    <ul>
+    <% p.supplies.each do |s| %>
+        <li><%= "#{s.name} (#{s.color})" %></li>
+    <% end %>
+    </ul>

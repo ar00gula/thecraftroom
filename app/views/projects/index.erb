@@ -1,9 +1,5 @@
 <% @projects.each do |p| %>
     <h4><%=link_to p.name, project_path(p) %><br></h4>
-    <%= p.description %><br>
-    <ul>
-    <% p.supplies.each do |s| %>
-        <li><%= "#{s.name} (#{s.color})" %></li>
-    <% end %>
-    </ul><br>
+    <%= render partial: "project_info", locals: {p: p} %>
+   <br>
 <% end %>

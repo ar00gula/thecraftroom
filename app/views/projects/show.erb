@@ -1,0 +1,5 @@
+<h2><%= @project.name %></h2>
+<%= render partial: "project_info", locals: {p: @project} %>
+
+<%= link_to 'Edit Project', edit_project_path(@project) %>
+    
