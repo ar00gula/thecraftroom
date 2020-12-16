@@ -23,11 +23,15 @@ ActiveRecord::Schema.define(version: 2020_12_15_191808) do
   end
 
   create_table "project_crafts", force: :cascade do |t|
+    t.integer "craft_id"
+    t.integer "project_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "project_supplies", force: :cascade do |t|
+    t.integer "supply_id"
+    t.integer "project_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -35,6 +39,8 @@ ActiveRecord::Schema.define(version: 2020_12_15_191808) do
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.string "description"
+    t.string "reference_info"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -48,6 +54,8 @@ ActiveRecord::Schema.define(version: 2020_12_15_191808) do
   end
 
   create_table "supply_crafts", force: :cascade do |t|
+    t.integer "craft_id"
+    t.integer "supply_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

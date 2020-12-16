@@ -1,15 +1,6 @@
 <h2>Project</h2>
 
-<%# Supply count: do this after your MVP is built!%>
-<%# Reference photos:%>
+<%= render 'form' %>
 
-<%= form_with model: @project do |f| %>
-<%= f.text_field :name %>
-<%= f.text_area :description %>
 
-<% @supplies.each do |supply| %>
-    <%= f.check_box :supplies, {multiple: true}, supply, false %>
-    <%= label supply %>
-<%= f.text_area :reference_info %>
-
-<%= f.submit %>
+<div class="question" name="why symbol vs quotes"></div>

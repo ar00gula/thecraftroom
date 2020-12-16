@@ -10,20 +10,20 @@ supply_list ={
 
 "yellow yarn" => {
     :name => "yarn",
-    :color => "yellow"
-    :description => "lionsbrand, cotton",
+    :color => "yellow",
+    :description => "lionsbrand, cotton"
   },
 
   "blue yarn" => {
     :name => "yarn",
-    :color => "blue"
-    :description => "lionsbrand, cotton",
+    :color => "blue",
+    :description => "lionsbrand, cotton"
   },
 
   "sticks" => {
     :name => "sticks",
-    :color => "brown"
-    :description => "approx 30 smol sticks",
+    :color => "brown",
+    :description => "approx 30 smol sticks"
   }
 }
 

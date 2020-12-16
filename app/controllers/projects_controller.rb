@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :logged_in, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in, only: [:show, :new, :edit, :update, :destroy]
 
   # GET /projects
   # GET /projects.json
@@ -15,6 +15,7 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new
     @project = Project.new
+    @project.supplies.build
     @supplies = Supply.all
   end
 
@@ -25,24 +26,14 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    @project = Project.new(project_params)
+    project = Project.new(project_params)
+    project.user = current_user
+    project.save
 
-  end
-
-  # PATCH/PUT /projects/1
-  # PATCH/PUT /projects/1.json
-  def update
- 
-  end
-
-  # DELETE /projects/1
-  # DELETE /projects/1.json
-  def destroy
-
+    redirect_to project
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def logged_in
       if current_user
       else
@@ -50,8 +41,7 @@ class ProjectsController < ApplicationController
       end
     end
 
-    # Only allow a list of trusted parameters through.
     def project_params
-      params.require(:project).permit(:name, :description)
+      params.require(:project).permit(:name, :user_id, :description, :reference_info, supply_ids:[], supplies_attributes: [:name, :description, :reference_info])
     end
 end

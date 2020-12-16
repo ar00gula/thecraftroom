@@ -1,0 +1,33 @@
+<%= form_with model: @project do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field  :name%>
+    <br><br>
+
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+    <br><br>
+
+
+    <%= f.label :supply %>
+        <%= f.collection_check_boxes :supply_ids, @supplies, :id, :name do |supply| %>
+            <%= supply.label(class: 'checkbox_container') {supply.check_box + supply.text} %><br>
+        <% end %>
+
+    <p>Need another supply? Add it here!</p>
+    <%= f.fields_for :supplies do |sf| %>
+        <%= sf.label :name %>
+        <%= sf.text_field :name %>
+        <br>
+        <%= sf.label :description %>
+        <%= sf.text_field :description %>
+        <br>
+    <% end %>
+    <br>
+
+    <%= f.label "Reference Info" %> 
+    <%= f.text_area :reference_info %>
+    <br>
+    <br>
+    
+    <%= f.submit %>
+<% end %>

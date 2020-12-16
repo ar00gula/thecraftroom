@@ -7,4 +7,12 @@ class Project < ApplicationRecord
 	has_many :project_supplies
 	has_many :supplies, through: :project_supplies
 
+	def supplies_attributes=(supply_attributes)
+		supply_attributes.values.each do |supply_attribute|
+		  supply = Supply.find_or_create_by(supply_attribute)
+		  
+		  self.supplies << supply
+		end
+	end
+
 end
