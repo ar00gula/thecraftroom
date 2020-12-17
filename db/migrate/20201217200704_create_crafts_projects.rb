@@ -1,6 +1,6 @@
-class CreateProjectCrafts < ActiveRecord::Migration[6.0]
+class CreateCraftsProjects < ActiveRecord::Migration[6.0]
   def change
-    create_table :project_crafts do |t|
+    create_table :crafts_projects do |t|
       t.integer :craft_id
       t.integer :project_id
 

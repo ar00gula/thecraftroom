@@ -3,6 +3,7 @@ class CreateCrafts < ActiveRecord::Migration[6.0]
     create_table :crafts do |t|
       t.string :name
       t.string :description
+      t.integer :category_id
 
       t.timestamps
     end

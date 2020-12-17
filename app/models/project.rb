@@ -1,11 +1,11 @@
 class Project < ApplicationRecord
     
     belongs_to :user
-	has_many :project_crafts
-	has_many :crafts, through: :project_crafts
+	has_many :crafts_projects
+	has_many :crafts, through: :crafts_projects
 
-	has_many :project_supplies
-	has_many :supplies, through: :project_supplies
+	has_many :supplies, through: :crafts
+	has_many :tools, through :crafts
 
 	def supplies_attributes=(supply_attributes)
 		supply_attributes.values.each do |supply_attribute|

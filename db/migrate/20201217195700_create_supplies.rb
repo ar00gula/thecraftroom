@@ -4,6 +4,7 @@ class CreateSupplies < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :color
       t.string :description
+      t.string :count
 
       t.timestamps
     end

@@ -10,28 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_15_191808) do
+ActiveRecord::Schema.define(version: 2020_12_17_200704) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "crafts", force: :cascade do |t|
+  create_table "categories", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "project_crafts", force: :cascade do |t|
+  create_table "crafts", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.integer "category_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "crafts_projects", force: :cascade do |t|
     t.integer "craft_id"
     t.integer "project_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "project_supplies", force: :cascade do |t|
+  create_table "crafts_supplies", force: :cascade do |t|
     t.integer "supply_id"
-    t.integer "project_id"
+    t.integer "craft_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "crafts_tools", force: :cascade do |t|
+    t.integer "craft_id"
+    t.integer "tool_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -49,13 +64,16 @@ ActiveRecord::Schema.define(version: 2020_12_15_191808) do
     t.string "name"
     t.string "color"
     t.string "description"
+    t.string "count"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "supply_crafts", force: :cascade do |t|
-    t.integer "craft_id"
-    t.integer "supply_id"
+  create_table "tools", force: :cascade do |t|
+    t.string "name"
+    t.string "brand"
+    t.string "description"
+    t.string "count"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

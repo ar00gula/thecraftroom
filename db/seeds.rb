@@ -35,3 +35,45 @@ supply_list.each do |name, supply_hash|
     end
     s.save
   end
+
+  supply_list ={
+
+"paper crafts" => {
+    :name => "paper crafts",
+    :description => "envelopes, origami, cards, wrapping paper, etc"
+  },
+
+  "carpentry" => {
+    :name => "carpentry",
+    :description => "all my carp shit"
+  },
+
+  "home improvements" => {
+    :name => "home improvements",
+    :description => "shelves, "
+  },
+
+  "bookbinding" => {
+    :name => "bookbinding",
+    :description => "lionsbrand, cotton"
+  },
+
+  "knitting" => {
+    :name => "knitting",
+    :description => "lionsbrand, cotton"
+  },
+
+  "moss and bark" => {
+    :name => "moss and bark",
+    :description => "approx 30 smol sticks"
+  }
+}
+
+craft_list.each do |name, supply_hash|
+    s = Supply.new
+    s.name = name
+    supply_hash.each do |attribute, value|
+      s[attribute] = value
+    end
+    s.save
+  end
