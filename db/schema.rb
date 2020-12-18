@@ -10,29 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_17_200704) do
+ActiveRecord::Schema.define(version: 2020_12_18_180951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "categories", force: :cascade do |t|
+  create_table "craft_categories", force: :cascade do |t|
     t.string "name"
-    t.string "description"
+    t.text "notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "crafts", force: :cascade do |t|
     t.string "name"
-    t.string "description"
-    t.integer "category_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "crafts_projects", force: :cascade do |t|
-    t.integer "craft_id"
-    t.integer "project_id"
+    t.text "notes"
+    t.integer "craft_category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -44,36 +37,17 @@ ActiveRecord::Schema.define(version: 2020_12_17_200704) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "crafts_tools", force: :cascade do |t|
-    t.integer "craft_id"
-    t.integer "tool_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "projects", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.string "reference_info"
-    t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "supplies", force: :cascade do |t|
     t.string "name"
-    t.string "color"
-    t.string "description"
-    t.string "count"
+    t.text "notes"
+    t.integer "supply_category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "tools", force: :cascade do |t|
+  create_table "supply_categories", force: :cascade do |t|
     t.string "name"
-    t.string "brand"
-    t.string "description"
-    t.string "count"
+    t.text "notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    @categories = Category.all
     @project.supplies.build
     @supplies = Supply.all
   end

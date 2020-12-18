@@ -2,9 +2,8 @@ class CreateSupplies < ActiveRecord::Migration[6.0]
   def change
     create_table :supplies do |t|
       t.string :name
-      t.string :color
-      t.string :description
-      t.string :count
+      t.text :notes
+      t.integer :supply_category_id
 
       t.timestamps
     end
