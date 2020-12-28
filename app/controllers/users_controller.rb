@@ -23,7 +23,6 @@ class UsersController < ApplicationController
     end
   end
 
-
   def create
     user = User.new(user_params)
       if user.password == user.password_confirmation
@@ -34,6 +33,8 @@ class UsersController < ApplicationController
         redirect_to '/signup', notice: "You did it wrong, asshole. Try again."
       end
   end
+
+  def 
 
   private
 

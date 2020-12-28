@@ -1,12 +1,13 @@
 <% @supply_categories.each do |sc| %>
-
-<h4><%= sc.name %></h4>
-<ol>
-<% sc.supplies.each do |s| %>
-<li><%= s.name %></li>
-<ul>
-<li><%= s.notes %></li>
-</ul>
+    <% unless sc.name == "Create New" %>
+        <h4><%= sc.name %></h4>
+        <ol>
+        <% sc.supplies.each do |s| %>
+        <li><%= s.name %></li>
+        <ul>
+        <li><%= s.notes %></li>
+        </ul>
+    <% end %>
 <% end %>
 </ol>
 <% end %>
