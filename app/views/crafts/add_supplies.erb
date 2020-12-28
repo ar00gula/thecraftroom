@@ -1,0 +1,30 @@
+<%= @craft.name %>
+
+<%= form_with model: @craft do |f| %>
+    <%= f.label :supplies %>
+
+    <% @supply_categories.each do |sc| %>
+        <%= label_tag "#{sc.name}" %>
+        <ul>
+        <li><%= f.collection_check_boxes :supply_ids, sc.supplies, :id, :name %></li>
+        </ul>
+    <% end %>
+    <br><br>
+
+
+    <p>Don't see your supply? Select "Create New" in the dropdown and add details here!</p>
+    <%= f.fields_for :supplies do |sf| %>
+        <%= sf.label :name %>
+        <%= sf.text_field :name %>
+        <br>
+        <%= sf.label :description %>
+        <%= sf.text_field :description %>
+        <br>
+        <%= sf.label :supply_category %>
+        <%= sf.collection_select :supply_category_id, @supply_categories, :id, :name %>
+        <br>
+    <% end %>
+
+    <%= f.submit "Next"%>
+
+<% end %>

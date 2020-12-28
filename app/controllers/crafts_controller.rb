@@ -1,74 +1,71 @@
 class CraftsController < ApplicationController
-  before_action :set_craft, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in?, only: [:show, :new, :edit, :update, :destroy]
 
-  # GET /crafts
-  # GET /crafts.json
   def index
-    @crafts = Craft.all
+    @craft_categories = CraftCategory.all
   end
 
-  # GET /crafts/1
-  # GET /crafts/1.json
   def show
+    @craft = Craft.find(params[:id])
   end
 
-  # GET /crafts/new
   def new
     @craft = Craft.new
+    @craft_categories = CraftCategory.all
   end
 
-  # GET /crafts/1/edit
   def edit
   end
 
-  # POST /crafts
-  # POST /crafts.json
   def create
-    @craft = Craft.new(craft_params)
+    craft = Craft.create(craft_params)
+    
+    if craft.craft_category == CraftCategory.find_by(name: "Create New")
+        craft.craft_category = CraftCategory.create(craft_category_params)
+            #maybe add functionality that catches if you add a new category that already exists
+        redirect_to crafts_new_add_supplies_path
+    else
+      redirect_to crafts_new_add_supplies_path
+    end
 
-    respond_to do |format|
-      if @craft.save
-        format.html { redirect_to @craft, notice: 'Craft was successfully created.' }
-        format.json { render :show, status: :created, location: @craft }
-      else
-        format.html { render :new }
-        format.json { render json: @craft.errors, status: :unprocessable_entity }
-      end
+  end
+
+  #this leaves this open to tampering. what i want is a multipage form but i want to build this out before i ask about it)
+  def add_supplies
+    @craft = Craft.last
+    @supplies = Supply.all
+    @supply_categories = SupplyCategory.all
+    #want to add functionality so that you can select a supply category and only see those on your screen one at a time
+    @craft.supplies.build
+  end  
+  
+  def add_supplies_create
+    craft = Craft.find(params[:craft_id])
+    craft.supplies << craft_supplies_params
+    
+    if craft.craft_category == CraftCategory.find_by(name: "Create New")
+        craft.craft_category = CraftCategory.create(craft_category_params)
+            #maybe add functionality that catches if you add a new category that already exists
+        redirect_to craft_path(craft)
+    else
+      redirect_to craft_path(craft)
     end
   end
 
-  # PATCH/PUT /crafts/1
-  # PATCH/PUT /crafts/1.json
   def update
-    respond_to do |format|
-      if @craft.update(craft_params)
-        format.html { redirect_to @craft, notice: 'Craft was successfully updated.' }
-        format.json { render :show, status: :ok, location: @craft }
-      else
-        format.html { render :edit }
-        format.json { render json: @craft.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
-  # DELETE /crafts/1
-  # DELETE /crafts/1.json
   def destroy
-    @craft.destroy
-    respond_to do |format|
-      format.html { redirect_to crafts_url, notice: 'Craft was successfully destroyed.' }
-      format.json { head :no_content }
-    end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_craft
-      @craft = Craft.find(params[:id])
+
+    def craft_params
+      params.require(:craft).permit(:name, :notes, :craft_category_id)
     end
 
-    # Only allow a list of trusted parameters through.
-    def craft_params
-      params.require(:craft).permit(:name, :description)
+    def craft_category_params
+      params.require(:craft).permit(:category, :notes, :name)
     end
-end
+    
+  end

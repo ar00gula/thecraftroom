@@ -92,6 +92,11 @@ supply_category_list ={
   "natural materials" => {
     :name => "Natural Materials",
     :notes => "moss, bark, sticks, etc"
+  },
+
+  "create new" => {
+    :name => "Create New",
+    :notes => "Create a new supply category!"
   }
 }
 

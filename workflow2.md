@@ -1,16 +1,23 @@
 DON'T DO TOOLS YET. THEY ARE THE SAME AS SUPPLIES AND A LATER PROBLEM.
 
 Supply
+    - Name
+    - Notes
+    - Count (??)
 
 
 Supply Category
-
+    - Name
+    - Notes
 
 Craft
+    - Name
+    - Notes
 
 
 Craft Category
-
+    - Name
+    - Notes
 
 User
 

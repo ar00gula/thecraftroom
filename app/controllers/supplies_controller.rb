@@ -1,74 +1,54 @@
 class SuppliesController < ApplicationController
-  before_action :set_supply, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in?, only: [:show, :new, :edit, :update, :destroy]
 
-  # GET /supplies
-  # GET /supplies.json
   def index
-    @supplies = Supply.all
+    @supply_categories = SupplyCategory.all
   end
 
-  # GET /supplies/1
-  # GET /supplies/1.json
   def show
+    @supply = Supply.find(params[:id])
   end
 
-  # GET /supplies/new
   def new
     @supply = Supply.new
+    @supply_categories = SupplyCategory.all
   end
 
-  # GET /supplies/1/edit
   def edit
   end
 
-  # POST /supplies
-  # POST /supplies.json
   def create
-    @supply = Supply.new(supply_params)
-
-    respond_to do |format|
-      if @supply.save
-        format.html { redirect_to @supply, notice: 'Supply was successfully created.' }
-        format.json { render :show, status: :created, location: @supply }
-      else
-        format.html { render :new }
-        format.json { render json: @supply.errors, status: :unprocessable_entity }
-      end
+    supply = Supply.create(supply_params)
+    
+    if supply.supply_category == SupplyCategory.find_by(name: "Create New")
+        supply.supply_category_id = SupplyCategory.create(supply_category_params[:category]).id
+        supply.save
+            #maybe add functionality that catches if you add a new category that already exists
+        redirect_to supply_path(supply)
+    else
+      redirect_to supply_path(supply)
     end
+
   end
 
-  # PATCH/PUT /supplies/1
-  # PATCH/PUT /supplies/1.json
   def update
-    respond_to do |format|
-      if @supply.update(supply_params)
-        format.html { redirect_to @supply, notice: 'Supply was successfully updated.' }
-        format.json { render :show, status: :ok, location: @supply }
-      else
-        format.html { render :edit }
-        format.json { render json: @supply.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
-  # DELETE /supplies/1
-  # DELETE /supplies/1.json
   def destroy
-    @supply.destroy
-    respond_to do |format|
-      format.html { redirect_to supplies_url, notice: 'Supply was successfully destroyed.' }
-      format.json { head :no_content }
-    end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_supply
-      @supply = Supply.find(params[:id])
-    end
+    # # Use callbacks to share common setup or constraints between actions.
+    # def set_supply
+    #   @supply = Supply.find(params[:id])
+    # end
 
     # Only allow a list of trusted parameters through.
     def supply_params
-      params.require(:supply).permit(:name, :description)
+      params.require(:supply).permit(:name, :notes, :supply_category_id)
+    end
+
+    def supply_category_params
+      params.require(:supply).permit(category: [:name, :notes])
     end
 end

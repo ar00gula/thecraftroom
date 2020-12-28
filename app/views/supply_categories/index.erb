@@ -1,0 +1,6 @@
+<% @supply_categories.each do |sc| %>
+    <h4><%=link_to sc.name, supply_category_path(sc) %><br></h4>
+    <ul>
+    <li><%= sc.notes %></li>
+    </ul>
+<% end %>

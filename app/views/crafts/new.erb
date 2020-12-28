@@ -1,0 +1,26 @@
+<%= form_with model: @craft do |f| %>
+
+    <%= f.label :name %>
+    <%= f.text_field  :name%>
+    <br><br>
+
+    <%= f.label :notes %>
+    <%= f.text_field :notes %>
+    <br><br>
+
+    <%= f.label :category %>
+    <%= f.collection_select :craft_category_id, @craft_categories, :id, :name %>
+    <br><br>
+
+    <p>Don't see your craft category? Select "Create New" in the dropdown and add details here!</p>
+    <%= f.label :name %>
+    <%= f.text_field "category[name]" %>
+    <br><br>
+    
+    <%= f.label :notes %>
+    <%= f.text_field "category[notes]" %>
+    <br><br>
+
+    <%= f.submit "Next"%>
+
+<% end %>

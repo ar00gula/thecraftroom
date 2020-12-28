@@ -28,12 +28,6 @@ class ProjectsController < ApplicationController
   end
 
   private
-    def logged_in
-      if current_user
-      else
-        redirect_to '/signup'
-      end
-    end
 
     def project_params
       params.require(:project).permit(:name, :user_id, :description, :reference_info, supply_ids:[], supplies_attributes: [:name, :description, :reference_info])

@@ -1,0 +1,26 @@
+<%= form_with model: @supply do |f| %>
+
+    <%= f.label :name %>
+    <%= f.text_field  :name%>
+    <br><br>
+
+    <%= f.label :notes %>
+    <%= f.text_field :notes %>
+    <br><br>
+
+    <%= f.label :category %>
+    <%= f.collection_select :supply_category_id, @supply_categories, :id, :name %>
+    <br><br>
+
+    <p>Don't see your supply category? Select "Create New" in the dropdown and add details here!</p>
+    <%= f.label :name %>
+    <%= f.text_field "category[name]" %>
+    <br><br>
+    
+    <%= f.label :notes %>
+    <%= f.text_field "category[notes]" %>
+    <br><br>
+
+    <%= f.submit %>
+
+<% end %>
