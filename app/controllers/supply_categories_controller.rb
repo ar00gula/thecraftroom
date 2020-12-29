@@ -1,4 +1,6 @@
 class SupplyCategoriesController < ApplicationController
+    before_action :logged_in?
+    
     def index
         @supply_categories = SupplyCategory.all
     end

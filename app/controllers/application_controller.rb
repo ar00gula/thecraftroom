@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
         if current_user
         else
           redirect_to '/signup'
+          #ADD FLASH MESSAGE HERE
         end
     end
 

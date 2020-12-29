@@ -1,5 +1,5 @@
 class SuppliesController < ApplicationController
-  before_action :logged_in?, only: [:show, :new, :edit, :update, :destroy]
+  before_action :logged_in?
 
   def index
     @supply_categories = SupplyCategory.all
