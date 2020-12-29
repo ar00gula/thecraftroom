@@ -40,3 +40,7 @@ a:hover {
 .hidden {
   display: none;
 }
+
+.no_bullets {
+  list-style: none;
+}

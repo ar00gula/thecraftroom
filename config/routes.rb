@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   # end
 
   get '/supplies/categories', to: 'craft_categories#index'
-  
+
   
   resources :crafts
+  get '/crafts/:id/add_supplies', to: 'crafts#add_supplies', as: 'add_supplies_craft'
+  post '/crafts/:id/add_supplies', to: 'crafts#add_supplies_create'
   resources :supplies do
     resources :craft_categories, only: :index
   end
@@ -21,8 +23,6 @@ Rails.application.routes.draw do
   post '/login', to: 'users#create_session'
   get '/signup', to: 'users#signup'
   post '/signup', to: 'users#create'
-  get '/crafts/new/add_supplies', to: 'crafts#add_supplies'
-  post '/crafts/new/add_supplies', to: 'crafts#add_supplies_create'
 
   
   resources :sessions, only: [:create]

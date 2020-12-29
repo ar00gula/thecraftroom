@@ -1,14 +1,16 @@
-<%= @craft.name %>
-
+<h2><%= @craft.name %></h2>
 <%= form_with model: @craft do |f| %>
-    <%= f.label :supplies %>
-
+    <h4>Add Supply</h4>
+<div class="hidden"> does it need to be ' label_tag "#{sc.name}" ' for params reasons? We'll see!! I wanna be able to click the name of the category and have the supplies appear and disappear OR ACTUALLY, i wanna have a find-or-create supply bar UGH I JUST WANT THINGS TO LOOK NICE </div>
     <% @supply_categories.each do |sc| %>
-        <%= label_tag "#{sc.name}" %>
-        <ul>
-        <li><%= f.collection_check_boxes :supply_ids, sc.supplies, :id, :name %></li>
+        <%= sc.name %>
+        <ul class="no_bullets">
+        <li><%= f.collection_radio_buttons :supply_ids, sc.supplies, :id, :name do |supply| %>
+            <%= supply.label(class: 'checkbox_container') {supply.radio_button + " " + supply.text} %><br>
+        <% end %></li>
         </ul>
     <% end %>
+
     <br><br>
 
 
@@ -25,6 +27,6 @@
         <br>
     <% end %>
 
-    <%= f.submit "Next"%>
+    <%= f.submit "Add"%>
 
 <% end %>
