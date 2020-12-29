@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :craft_categories
   resources :supply_categories
   resources :users
-
+  get '/', to: 'application#index'
   get '/login', to: 'users#login'
   post '/login', to: 'users#create_session'
   get '/signup', to: 'users#signup'

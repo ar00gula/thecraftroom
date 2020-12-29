@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :logged_in?, only: [:show, :destroy]
 
   def index
     @users = User.all
@@ -10,6 +11,10 @@ class UsersController < ApplicationController
 
   def login
     @user = User.new
+  end
+
+  def show
+    @user = User.find_by(id: session[:user_id])
   end
 
   def create_session
@@ -34,7 +39,11 @@ class UsersController < ApplicationController
       end
   end
 
-  def 
+  def destroy
+    session[:user_id] = nil
+    redirect_to '/'
+  end
+
 
   private
 
