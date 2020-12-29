@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in?, only: [:show, :destroy]
+  before_action :logged_in?, only: [:index, :show, :destroy]
 
   def index
     @users = User.all
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
     if user && user.authenticate(params[:user][:password])
       session[:user_id] = user.id
-      redirect_to '/users'
+      redirect_to user_path(user)
     else
       redirect_to '/signup'
     end

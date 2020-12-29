@@ -1,8 +1,10 @@
 class Supply < ApplicationRecord
     belongs_to :supply_category
+    belongs_to :user
     
     has_many :crafts_supplies
     has_many :crafts, through: :crafts_supplies
+    has_many :craft_categories, through: :crafts
 
 
     def supply_category_attributes=(supply_category)

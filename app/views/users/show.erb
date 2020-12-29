@@ -1,3 +1,6 @@
-<%= @user.username %>
+<h2><%= @user.username %>'s craft room</h2>
 <br>
-<%= link_to "Logout", user_path, method: :delete %>
+
+<% @user.craft_categories.each do |category| %>
+<%= link_to category.name, craft_category_path(category) %>
+<% end %>

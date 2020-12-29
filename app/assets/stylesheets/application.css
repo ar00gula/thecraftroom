@@ -13,3 +13,30 @@
  *= require_tree .
  *= require_self
  */
+
+a {
+  color: inherit;
+  text-decoration: inherit; }
+
+a:visited {
+  color: #000; }
+
+a:hover {
+  color: #000; }
+
+ .ul-navbar {
+    padding: 10px 0px;
+    background: rgb(198, 233, 176);
+    margin: auto auto 0px auto;
+    text-align: center;
+  }
+
+  .navbar {
+    padding: 0px 40px 0px 0px;
+    color: whitesmoke;
+    display: inline;
+  }
+
+.hidden {
+  display: none;
+}

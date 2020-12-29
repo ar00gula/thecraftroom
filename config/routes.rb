@@ -4,15 +4,19 @@ Rails.application.routes.draw do
   #   resources :craft_categories, only: [:index]
   # end
 
-  get '/crafts/categories', to: 'craft_categories#index'
+  get '/supplies/categories', to: 'craft_categories#index'
   
   
   resources :crafts
-  resources :supplies
+  resources :supplies do
+    resources :craft_categories, only: :index
+  end
+  #not what i actually want, just me messing around to make sure i understand nested resources
   resources :craft_categories
+
   resources :supply_categories
   resources :users
-  get '/', to: 'application#index'
+  get '/', to: 'application#index', as: 'homepage'
   get '/login', to: 'users#login'
   post '/login', to: 'users#create_session'
   get '/signup', to: 'users#signup'
