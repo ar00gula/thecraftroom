@@ -1,10 +1,15 @@
-<ul>
-<% @craft_categories.each do |cat| %>
-    <li><%= link_to cat.name, craft_category_path(cat) %></li>
-        <ul>
-        <% cat.crafts.each do |craft| %>
-            <li><%= link_to craft.name, craft_category_craft_path(cat, craft) %></li>
+Change this to craft categories are ordered by name and then it's every other one in the array that's sorted?
+<br>
+
+<div class="grid-container">
+    <% @craft_categories.each do |cat| %>
+        <% i = 0 %>
+        <% while i < @craft_categories.count %>
+            <div class=<%="item#{i+1}"%>>
+                <a href=<%=craft_category_path(cat)%>><%= cat.name %></a>
+            </div>
+            <% i += 1 %>
         <% end %>
-        </ul>
-<% end %>
-</ul>
+    <% end %>
+</div>
+
