@@ -1,0 +1,6 @@
+<h2><%= @category.name %></h2>
+<ul>
+<% @category.crafts.each do |craft| %>
+    <li><%= link_to craft.name, craft_category_craft_path(craft) %></li>
+<% end %>
+</ul>

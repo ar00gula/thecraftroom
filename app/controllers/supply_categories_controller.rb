@@ -5,6 +5,10 @@ class SupplyCategoriesController < ApplicationController
         @supply_categories = SupplyCategory.all
     end
 
+    def show
+        @category = SupplyCategory.find(params[:id])
+    end
+
     def create
         sc = SupplyCategory.create(sc_params)
         

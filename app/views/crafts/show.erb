@@ -1,9 +1,12 @@
 <h2><%= @craft.name %></h2>
+<h3><%= @craft.notes %> make this be in a lil info box</h3>
 <h4>Supplies</h4>
 <ul>
 <% @craft.supplies.each do |supply| %>
 <li><%= supply.name %></li>
 <% end %>
+there will be supplies here once i make them i promise quin
+
 </ul>
 
-<%= link_to "Add Supply", add_supplies_craft_path(@craft) %>
+<%= link_to "Add Supply", edit_craft_path(@craft) %>

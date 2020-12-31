@@ -1,0 +1,28 @@
+LEAVING THIS IN A WEIRD PLACE BUT:
+
+THE CONTROLLER FOR THIS IS FUCKED ALL TO HELL BC IT IS MOSTLY COPY PASTED FROM WHERE I DID IT BEFORE, BUT BEFORE I FIXED IT TO ACTUALLY WORK
+i still don't actually understand everything form_with is doing, and tomorrow i am GOING TO GODDAMNIT
+after i get the functionality on this working, i am allowed to delve deep into styling bc honestly my forms are complicated and i should be praised
+
+<h2><%= @craft.name %></h2>
+<h4>Add Supply</h4>
+
+
+<%= form_with model: @craft do |f| %>
+<div class="hidden"> does it need to be ' label_tag "#{sc.name}" ' for params reasons? We'll see!! I wanna be able to click the name of the category and have the supplies appear and disappear OR ACTUALLY, i wanna have a find-or-create supply bar UGH I JUST WANT THINGS TO LOOK NICE </div>
+    <% @supply_categories.each do |sc| %>
+    <% unless sc.name == "Create New" %>
+    <div class="no_bullets">
+            <%= label_tag "#{sc.name}" %>
+                <li><%= f.collection_check_boxes :supply_ids, sc.supplies, :id, :name do |supply| %>
+            <%= supply.label(class: 'checkbox_container') {supply.check_box + " " + supply.text} %><br>
+            </div>
+        <% end %></li>    
+        <% end %>
+        <% end %>
+
+    <p>Don't see your supply? Add it <b><%= link_to "here!", new_supply_path %></b></p>
+
+    <%= f.submit "Add"%>
+
+<% end %>

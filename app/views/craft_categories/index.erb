@@ -1,1 +1,10 @@
-craft categories
+<ul>
+<% @craft_categories.each do |cat| %>
+    <li><%= link_to cat.name, craft_category_path(cat) %></li>
+        <ul>
+        <% cat.crafts.each do |craft| %>
+            <li><%= link_to craft.name, craft_category_craft_path(cat, craft) %></li>
+        <% end %>
+        </ul>
+<% end %>
+</ul>

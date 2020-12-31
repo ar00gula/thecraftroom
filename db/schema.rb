@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2020_12_18_180951) do
     t.text "notes"
     t.integer "supply_category_id"
     t.integer "user_id"
-    t.boolean "in_stock?"
+    t.boolean "in_stock"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

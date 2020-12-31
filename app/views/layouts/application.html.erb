@@ -10,24 +10,21 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <header>
-  <h1 class="header"><%=link_to "the craft room", homepage_path%></h1>
-  <h5 class="hidden">keep track. use the supplies you have. save money. recycle. !!</h5>
-  
-  </header>
   <body>
-      <ul class="ul-navbar">
+      <div class="topnav">
       <% if current_user%>
-        <li class="navbar"><a href="/crafts">Crafts</a></li>
-        <li class="navbar"><a href="/supplies">Supplies</a></li>
-        <li class="navbar"><%= link_to "Logout", user_path(current_user.id), method: :delete%></li>
+        <a class="topnav" href=<%=user_path(current_user)%>>My Craft Room</a>
+        <a class="topnav" href="/crafts">Crafts</a>
+        <a class="topnav" href="/supplies">Supplies</a>
+        <a class="topnav" href=<%=user_path(current_user)%> data-confirm="Are you sure you wish to logout?" data-method="delete">Log Out</a>
       <% end %>
       <% if !current_user%>
-        <li class="navbar"><a href="/login">Log In</a></li>
-        <li class="navbar"><a href="/signup">Sign Up</a></li> 
+        <a class="topnav" href="/login">Log In</a>
+        <a class="topnav" href="/signup">Sign Up</a>
       <% end %>
-    </ul>
-    <br>
+    </div>
+    <div class="wrapper">
     <%= yield %>
+    </div>
   </body>
 </html>

@@ -1,13 +1,15 @@
-<% @supply_categories.each do |sc| %>
+<% @categories.each do |sc| %>
     <% unless sc.name == "Create New" %>
-        <h4><%= sc.name %></h4>
+        <h4><%= link_to sc.name, supply_category_path(sc)%></h4>
         <ol>
         <% sc.supplies.each do |s| %>
-        <li><%= s.name %></li>
+        <li><%= link_to s.name, supply_path(s) %></li>
         <ul>
         <li><%= s.notes %></li>
+        <li>Last Updated: <%= s.updated_at.strftime("%x") %> (eventually this should appear on hover)</i>
         </ul>
     <% end %>
 <% end %>
 </ol>
 <% end %>
+<%= link_to "Log Supply", new_supply_path %>

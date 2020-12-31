@@ -5,7 +5,7 @@ class CreateSupplies < ActiveRecord::Migration[6.0]
       t.text :notes
       t.integer :supply_category_id
       t.integer :user_id
-      t.boolean :in_stock?
+      t.boolean :in_stock
 
       t.timestamps
     end

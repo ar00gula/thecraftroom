@@ -1,5 +1,15 @@
-<%= @supply.name %>
-<br>
+<h2><%= @supply.name %></h2>
 <ul>
 <li><%= @supply.notes%></li>
+<li>In Stock?: <%= @supply.in_stock%></li>
+
 </ul>
+
+<%= link_to "Edit Supply Info", edit_supply_path(@supply) %>
+<br>
+<br>
+
+<footer>Most Recent Update: <%= @supply.updated_at %></footer> figure out how to put this into a layout view
+
+
+LEAVING THIS FOR A BIT, I'VE GOT THE PROGRAMMING AND WILL DECIDE WHETHER OR NOT TO ADD COUNT TO THIS L A T E R

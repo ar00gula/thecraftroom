@@ -112,11 +112,11 @@ end
 supply_list ={
 
   "blue yarn" => {
-    :name => "Yarn",
+    :name => "Blue Yarn",
     :notes => "lionsbrand, cotton",
     :supply_category_id => 6,
     :user_id => 1,
-    :in_stock? => true
+    :in_stock => true
   },
 
   "sticks" => {
@@ -124,7 +124,7 @@ supply_list ={
     :notes => "approx 30 smol sticks",
     :supply_category_id => 5,
     :user_id => 1,
-    :in_stock? => true
+    :in_stock => true
   }
 }
 
