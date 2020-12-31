@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   # get '/supplies/categories', to: 'craft_categories#index'
 
-  
+
   resources :supplies
     # resources :craft_categories, only: :index
   
@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :crafts, only: :show, :path =>"/"
   end
   resources :crafts, only: [:create, :new, :edit, :update, :destroy], :path =>"craft"
+  get '/all_crafts', to: 'crafts#index', as: 'all_crafts'
   #lol remember to add delete buttons!!!!
   resources :supply_categories
   resources :users
