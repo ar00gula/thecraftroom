@@ -34,13 +34,34 @@ class CraftsController < ApplicationController
   
   def update
     craft = Craft.find(params[:id])
-    array = craft_supplies_params[:supply_ids]
-    array.each do |id|
-      if id != nil
-        CraftsSupply.create(supply_id: id, craft_id: params[:id])
+
+    if craft.supplies
+      craft_supplies_params[:supply_ids].each do |supply_id| 
+        if !supply_id.empty? && !craft.supplies.find_by_id(supply_id)
+            craft.supplies << Supply.find_by_id(supply_id)
+        end
+  
+        craft.supplies.each do |supply|
+          if !craft_supplies_params[:supply_ids].include?(supply.id.to_s)
+              craft.supplies - [supply]
+              if CraftsSupply.find_by(:supply_id => supply.id, :craft_id => craft.id)
+              CraftsSupply.find_by(:supply_id => supply.id, :craft_id => craft.id).destroy
+              end
+          end
+        end
+      craft.save
       end
+    
+    else
+        craft_supplies_params[:supply_ids].each do |id|
+          if id != nil
+            CraftsSupply.create(supply_id: id, craft_id: params[:id])
+          end
+        end
     end
-    redirect_to 
+
+    #   #this is not actually acting like it should? I want to be able to assign and unassign supplies, etc -- need to refer to my sinatra project
+    redirect_to craft_category_craft_path(craft)
   
   end
 

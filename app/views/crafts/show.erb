@@ -3,10 +3,12 @@
 <h4>Supplies</h4>
 <ul>
 <% @craft.supplies.each do |supply| %>
-<li><%= supply.name %></li>
+    <% if supply.in_stock %>
+        <li><%= supply.name %></li>
+    <% else %>
+        <li class="strike"><%= supply.name %></li>
+    <% end %>
 <% end %>
-there will be supplies here once i make them i promise quin
-
 </ul>
 
-<%= link_to "Add Supply", edit_craft_path(@craft) %>
+<%= link_to "Edit Supplies", edit_craft_path(@craft) %>
