@@ -14,7 +14,7 @@
       <ul>
       <% if current_user%>
         <li><a href=<%=user_path(current_user)%>>My Craft Room</a></li>
-        <li class ="dropdown"> <a>Crafts</a>
+        <li class ="dropdown"> <a href=<%=all_crafts_path%>>Crafts</a>
           <div class="dropdown-content">
             <a href=<%=craft_categories_path%>>Craft Categories</a>
             <a href=<%=all_crafts_path%>>All Crafts</a>
@@ -25,8 +25,8 @@
           <a href="/supplies">Supplies</a>
           <div class="dropdown-content">
             <a href=<%=supply_categories_path%>>Supply Categories</a>
-            <a href="#">All Supplies</a>
-            <a href="#">Add New Supply</a>
+            <a href=<%=supplies_path%>>All Supplies</a>
+            <a href=<%=new_supply_path%>>Add New Supply</a>
 `         </div></li>
         <li><a href=<%=user_path(current_user)%> data-confirm="Are you sure you wish to logout?" data-method="delete">Log Out</a></li>
       <% end %>
