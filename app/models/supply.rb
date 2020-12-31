@@ -1,4 +1,6 @@
 class Supply < ApplicationRecord
+    scope :in_stock, -> {where(in_stock: true)}
+
     belongs_to :supply_category
     belongs_to :user
     

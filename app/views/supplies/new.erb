@@ -12,7 +12,13 @@
     <%= f.collection_select :supply_category_id, @supply_categories, :id, :name %>
     <br><br>
 
-    <p>Don't see your supply category? Select "Other" in the dropdown and add details here!</p>
+     <%= f.label :in_stock? %>
+        <label class="switch">
+        <%= f.check_box :in_stock %>
+        <span class="slider round"></span>
+    </label>
+
+    <p>Don't see your supply category? Select "Create New" in the dropdown and add details here!</p>
     <div>New Category Name</div> <div class="hidden">Why can't I have multiple capitalizations in labels, Rails?</div>
     <%= f.text_field "category[name]" %>
     <br><br>

@@ -8,4 +8,5 @@ class Craft < ApplicationRecord
         self.supplies = SupplyCategory.find_or_create_by(name: supplies[:name])
         self.supplies.update(supplies)
     end
+
 end

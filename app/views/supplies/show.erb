@@ -1,9 +1,10 @@
 <h2><%= @supply.name %></h2>
 <ul>
 <li><%= @supply.notes%></li>
-<li>In Stock?: <%= @supply.in_stock%></li>
+<li>In Stock?: <%= @supply.in_stock ? ("Yes") : ("No") %></li>
 
 </ul>
+
 
 <%= link_to "Edit Supply Info", edit_supply_path(@supply) %>
 <br>
@@ -13,3 +14,5 @@
 
 
 LEAVING THIS FOR A BIT, I'VE GOT THE PROGRAMMING AND WILL DECIDE WHETHER OR NOT TO ADD COUNT TO THIS L A T E R
+
+NEED TO FIX IT SO THAT IN STOCK IS NOT OPTIONAL

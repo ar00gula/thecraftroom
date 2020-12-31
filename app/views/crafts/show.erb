@@ -11,4 +11,8 @@
 <% end %>
 </ul>
 
-<%= link_to "Edit Supplies", edit_craft_path(@craft) %>
+<p><%= "#{@craft.supplies.in_stock.count} of #{@craft.supplies.count} supplies in stock." %></p>
+
+<p><%= link_to "Assign Supplies", edit_craft_path(@craft) %></p>
+<p><%= link_to "Log New Supplies", new_supply_path %></p>
+

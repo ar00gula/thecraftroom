@@ -22,6 +22,7 @@ class SuppliesController < ApplicationController
 
   def create
     supply = Supply.new(supply_params)
+    supply.name = supply.name.capitalize
     supply.user_id = current_user.id
     supply.save
 
@@ -39,14 +40,13 @@ class SuppliesController < ApplicationController
   def update
     supply = Supply.find(params[:id])
     supply.update(supply_params)
-
     if supply.supply_category == SupplyCategory.find_by(name: "Create New")
         supply.supply_category_id = SupplyCategory.create(supply_category_params[:category]).id
         supply.save
             #maybe add functionality that catches if you add a new category that already exists
-        redirect_to supplies_path
+        redirect_to supply_path(supply)
     else
-      redirect_to supplies_path
+      redirect_to supply_path(supply)
     end
   end
 
@@ -61,7 +61,7 @@ class SuppliesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def supply_params
-      params.require(:supply).permit(:name, :notes, :supply_category_id)
+      params.require(:supply).permit(:name, :notes, :supply_category_id, :in_stock)
     end
 
     def supply_category_params

@@ -7,7 +7,7 @@
     <% @supply_categories.each do |sc| %>
     <% unless sc.name == "Create New" %>
     <div class="no_bullets">
-            <%= label_tag "#{sc.name}" %>
+            <%= sc.name %>
                 <li><%= f.collection_check_boxes :supply_ids, sc.supplies, :id, :name do |supply| %>
             <%= supply.label(class: 'checkbox_container') {supply.check_box + " " + supply.text} %><br>
             </div>

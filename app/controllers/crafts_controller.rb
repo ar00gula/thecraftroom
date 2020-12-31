@@ -77,5 +77,6 @@ class CraftsController < ApplicationController
     def craft_supplies_params
       params.require(:craft).permit(supply_ids:[])
     end
+
     
   end
