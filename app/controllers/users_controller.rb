@@ -50,5 +50,9 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:password, :password_confirmation, :username, :name)
     end
-  
+
+    def favorite_params
+        params.require(:user).permit(:craft_category_id)
+    end
+
   end

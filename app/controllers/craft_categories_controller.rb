@@ -9,5 +9,4 @@ class CraftCategoriesController < ApplicationController
         @category = CraftCategory.find(params[:id])
     end
 
-
 end

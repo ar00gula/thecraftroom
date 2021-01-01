@@ -4,3 +4,10 @@
     <li><%= link_to craft.name, craft_category_craft_path(craft) %></li>
 <% end %>
 </ul>
+
+<%= form_with model: @user do |f| %>
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <%= f.label :favorite? %>
+    <%= f.check_box :craft_category_id, {}, @category.id, nil%>
+    <%= f.submit %>
+<% end %>
