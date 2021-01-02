@@ -10,21 +10,22 @@ Rails.application.routes.draw do
     resources :crafts, only: [:show, :new], :path =>"activities"
   end
 
-  resources :crafts, only: [:index, :create, :new, :edit, :update, :destroy], :path =>"activities"
-  # post '/activity/new', to: "crafts#create" #this seems like it miht be very wrong but it's working
-  #lol remember to add delete buttons!!!!
+  resources :crafts, :path =>"activities"
 
   resources :supplies
-  get '/crafts/all', to: 'crafts#index', as: 'all_crafts'
-
-
-  resources :supply_categories
-  resources :users
+  resources :supply_categories, except: :new
+  resources :users, except: [:new, :create, :show]
   get '/', to: 'application#index', as: 'homepage'
   get '/login', to: 'users#login'
   post '/login', to: 'users#create_session'
   get '/signup', to: 'users#signup'
   post '/signup', to: 'users#create'
-  get '/auth/facebook/callback' => 'users#create_facebook' 
+
+  get '/auth/facebook/callback' => 'users#create_facebook'
+  
+# This will do what I want it to but also is definitely what namespaced routes are for and I woul dlike to add that!!
+  # resources :admin do
+  #   resources: :users, only: index
+  # end
 
 end

@@ -1,5 +1,5 @@
 
-<%= form_with model: @craft, url: '/craft/new', local: true do |f| %>
+<%= form_with model: @craft, local: true do |f| %>
     <% if @craft.errors.any? %>
   <div id="error_explanation">
     <h2>
@@ -23,7 +23,7 @@
     <br><br>
 
     <%= f.label :category %>
-    <% if @category.valid? %>
+    <% if @category.present? %>
         <%= f.collection_select :craft_category_id, @craft_categories, :id, :name, selected: @category.id %>
     <% else %>
       <%= f.collection_select :craft_category_id, @craft_categories, :id, :name %>
