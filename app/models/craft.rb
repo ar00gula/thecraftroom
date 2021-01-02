@@ -4,7 +4,7 @@ class Craft < ApplicationRecord
     has_many :crafts_supplies
     has_many :supplies, through: :crafts_supplies
 
-    validates :name, presence: true
+    validates :name, { uniqueness: true, presence: true } 
 
     def supply_attributes=(supplies)
         self.supplies = SupplyCategory.find_or_create_by(name: supplies[:name])

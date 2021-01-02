@@ -16,6 +16,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: session[:user_id])
+    @craft_categories = CraftCategory.all
   end
 
   def create_session

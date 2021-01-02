@@ -9,13 +9,14 @@ Rails.application.routes.draw do
 
   resources :supplies
     # resources :craft_categories, only: :index
-  
+  get '/crafts/all', to: 'crafts#index', as: 'all_crafts'
+
   #not what i actually want, just me messing around to make sure i understand nested resources
   resources :craft_categories, only: [:index, :show, :update], :path =>"crafts" do
-    resources :crafts, only: :show, :path =>"/"
+    resources :crafts, :path =>"/"
   end
   resources :crafts, only: [:create, :new, :edit, :update, :destroy], :path =>"craft"
-  get '/all_crafts', to: 'crafts#index', as: 'all_crafts'
+  post '/craft/new', to: "crafts#create" #this seems like it miht be very wrong but it's working
   #lol remember to add delete buttons!!!!
   resources :supply_categories
   resources :users

@@ -8,19 +8,19 @@ class CraftsController < ApplicationController
   def new
     @craft = Craft.new
     @craft_categories = CraftCategory.all
+
   end
   
   def create
-    craft = Craft.create(craft_params)
+    @craft = Craft.new(craft_params)
     
-    if craft.craft_category == CraftCategory.find_by(name: "Create New")
-        craft.craft_category = CraftCategory.create(craft_category_params)
-            #maybe add functionality that catches if you add a new category that already exists
-        redirect_to crafts_new_add_supplies_path
-    else
-      redirect_to crafts_new_add_supplies_path
-    end
+    if @craft.save
+      redirect_to craft_category_craft_path(@craft.craft_category, @craft)
 
+    else
+      @craft_categories = CraftCategory.all
+      render :new
+    end
   end
 
   #this leaves this open to tampering. what i want is a multipage form but i want to build this out before i ask about it)
@@ -71,7 +71,7 @@ class CraftsController < ApplicationController
   private
 
     def craft_params
-      params.require(:craft).permit(:name, :notes)
+      params.require(:craft).permit(:name, :notes, :craft_category_id)
     end
 
     def craft_supplies_params

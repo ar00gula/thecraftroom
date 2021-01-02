@@ -1,7 +1,20 @@
-<%= form_with model: @craft do |f| %>
+<%= form_with model: @craft, url: '/craft/new', local: true do |f| %>
+    <% if @craft.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@craft.errors.count, "error") %>
+      prohibited this craft from being saved:
+    </h2>
 
+    <ul>
+    <% @craft.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
     <%= f.label :name %>
-    <%= f.text_field  :name%>
+    <%= f.text_field :name %>
     <br><br>
 
     <%= f.label :notes %>
@@ -10,15 +23,6 @@
 
     <%= f.label :category %>
     <%= f.collection_select :craft_category_id, @craft_categories, :id, :name %>
-    <br><br>
-
-    <p>Don't see your craft category? Select "Create New" in the dropdown and add details here!</p>
-    <%= f.label :name %>
-    <%= f.text_field "category[name]" %>
-    <br><br>
-    
-    <%= f.label :notes %>
-    <%= f.text_field "category[notes]" %>
     <br><br>
 
     <%= f.submit "Next"%>
