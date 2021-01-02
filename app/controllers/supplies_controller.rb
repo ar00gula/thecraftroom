@@ -21,20 +21,21 @@ class SuppliesController < ApplicationController
   end
 
   def create
-    supply = Supply.new(supply_params)
-    supply.name = supply.name.capitalize
-    supply.user_id = current_user.id
-    supply.save
-
-    if supply.supply_category == SupplyCategory.find_by(name: "Create New")
-        supply.supply_category_id = SupplyCategory.create(supply_category_params[:category]).id
-        supply.save
-            #maybe add functionality that catches if you add a new category that already exists
+    @supply = Supply.new(supply_params)
+    @supply.name = @supply.name.capitalize
+    @supply.user_id = current_user.id
+    if @supply.save
+      if @supply.supply_category == SupplyCategory.find_by(name: "Create New")
+          @supply.supply_category_id = SupplyCategory.create(supply_category_params[:category]).id
+          @supply.save
+              #maybe add functionality that catches if you add a new category that already exists
+          redirect_to supplies_path
+      else
         redirect_to supplies_path
+      end
     else
-      redirect_to supplies_path
+      render :new
     end
-
   end
 
   def update

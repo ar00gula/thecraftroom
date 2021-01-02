@@ -4,6 +4,10 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @user = User.find_by(id: session[:user_id])
+  
+  unless current_user.id == 1
+     redirect_to '/home'
+    end
   end
 
   def signup
@@ -24,7 +28,7 @@ class UsersController < ApplicationController
 
     if user && user.authenticate(params[:user][:password])
       session[:user_id] = user.id
-      redirect_to user_path(user)
+      redirect_to home_path
     else
       redirect_to '/signup'
     end
@@ -35,7 +39,7 @@ class UsersController < ApplicationController
     if @user.valid?
         @user.save
         session[:user_id] = @user.id
-        redirect_to '/users'
+        redirect_to '/home'
     else
         render :signup, notice: "You did it wrong, asshole. Try again."
     end

@@ -14,12 +14,13 @@ Rails.application.routes.draw do
 
   resources :supplies
   resources :supply_categories, except: :new
-  resources :users, except: [:new, :create, :show]
+  resources :users, except: [:new, :show]
   get '/', to: 'application#index', as: 'homepage'
   get '/login', to: 'users#login'
   post '/login', to: 'users#create_session'
   get '/signup', to: 'users#signup'
   post '/signup', to: 'users#create'
+  get '/home', to: 'users#show'
 
   get '/auth/facebook/callback' => 'users#create_facebook'
   
