@@ -1,10 +1,9 @@
 <h2><%= @category.name %></h2>
 <ul>
 <% @category.crafts.each do |craft| %>
-    <li><%= link_to craft.name, craft_category_craft_path(craft) %></li>
+    <li><%=link_to craft.name, craft_category_craft_path(craft)%></li>
 <% end %>
 </ul>
-
 
 <%= form_with model: @category do |f| %>
     <%= f.radio_button :favorite, true, :checked => false %>
@@ -14,3 +13,5 @@
 
     <%= f.submit "Update Favorite Status"%>
 <% end %>
+
+<p><%= link_to "Create New Activity", new_craft_category_craft_path(@category) %></p>

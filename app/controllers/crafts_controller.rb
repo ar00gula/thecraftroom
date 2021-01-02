@@ -6,7 +6,8 @@ class CraftsController < ApplicationController
   end
 
   def new
-    @craft = Craft.new
+    @craft = Craft.new 
+       @category = CraftCategory.find_by(id: params[:craft_category_id])
     @craft_categories = CraftCategory.all
 
   end
@@ -29,7 +30,6 @@ class CraftsController < ApplicationController
     @supplies = Supply.all
     @supply_categories = SupplyCategory.all
     #want to add functionality so that you can select a supply category and only see those on your screen one at a time
-    @craft.supplies.build
   end  
   
   def update

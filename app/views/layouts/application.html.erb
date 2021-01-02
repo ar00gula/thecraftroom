@@ -14,10 +14,10 @@
       <div class="navbar-ul">
       <% if current_user%>
         <div class="li"><a href=<%=user_path(current_user)%>>My Craft Room</a></div>
-        <div class="li dropdown"> <a href=<%=all_crafts_path%>>Crafts</a>
+        <div class="li dropdown"> <a href=<%=crafts_path%>>Crafts</a>
           <div class="dropdown-content">
             <a href=<%=craft_categories_path%>>Craft Categories</a>
-            <a href=<%=all_crafts_path%>>All Crafts</a>
+            <a href=<%=crafts_path%>>All Crafts</a>
             <a href=<%=new_craft_path%>>Create New Craft</a>
 `         </div>
         </div>
