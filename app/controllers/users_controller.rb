@@ -41,11 +41,23 @@ class UsersController < ApplicationController
   end
 
   def create_facebook
-    #currently broken bc i'm not sure if i'm supposed to make another class or what? but the basic functionality seems to be going
     @user = User.find_or_create_by(uid: auth['uid']) do |u|
       u.name = auth['info']['name']
       u.email = auth['info']['email']
       u.image = auth['info']['image']
+      u.password = SecureRandom.urlsafe_base64
+      u.password_confirmation = u.password
+      
+      username = auth['info']['name'].split(" ").join
+      if User.find_by(username: username)
+        i = 0
+        until !User.find_by(username: :username)
+          username = username + i
+          i += 1
+        end
+      end
+      u.username = username
+
     end
     byebug
 

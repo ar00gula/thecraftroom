@@ -7,7 +7,7 @@ class User < ApplicationRecord
     has_many :craft_categories, through: :favorite_craft_categories
 
 
-    validates :username, { uniqueness: true, length: { in: 5..20} } 
+    validates :username, { uniqueness: true } 
     validates :password, { length: { minimum: 5}, confirmation: { case_sensitive: true} }
     #add must have both caps and noncaps, do this by verifying password and password.capitalize are not the same
 end
