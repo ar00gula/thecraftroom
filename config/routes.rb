@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     # resources :craft_categories, only: :index
   
   #not what i actually want, just me messing around to make sure i understand nested resources
-  resources :craft_categories, only: [:index, :show], :path =>"crafts" do
+  resources :craft_categories, only: [:index, :show, :update], :path =>"crafts" do
     resources :crafts, only: :show, :path =>"/"
   end
   resources :crafts, only: [:create, :new, :edit, :update, :destroy], :path =>"craft"
@@ -24,5 +24,6 @@ Rails.application.routes.draw do
   post '/login', to: 'users#create_session'
   get '/signup', to: 'users#signup'
   post '/signup', to: 'users#create'
+  get '/auth/facebook/callback' => 'users#create_facebook' 
 
 end

@@ -8,6 +8,8 @@ class Supply < ApplicationRecord
     has_many :crafts, through: :crafts_supplies
     has_many :craft_categories, through: :crafts
 
+    validates :name, presence: true
+    validates :in_stock, presence: true
 
     def supply_category_attributes=(supply_category)
         self.supply_category = SupplyCategory.find_or_create_by(name: supply_category[:name])

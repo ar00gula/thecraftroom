@@ -1,4 +1,9 @@
-<h2><%= @user.username %>'s craft room</h2>
+<% if session[:user_id] %>
+  <h1><%= @user.name %></h1>
+  <h2>Email: <%= @user.email %></h2>
+  <h2>Facebook UID: <%= @user.uid %></h2>
+  <img src="<%= @user.image %>">
+  
 <br>
 
 <% @user.craft_categories.uniq.each do |category| %>
@@ -10,3 +15,5 @@
 <% end %>
 <br>
 Change the URL on this to "home" ? idk smth
+
+<%end%>

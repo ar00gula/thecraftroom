@@ -5,9 +5,12 @@
 <% end %>
 </ul>
 
-<%= form_with model: @user do |f| %>
-    <input id="hidden" type="hidden" name="_method" value="patch">
-    <%= f.label :favorite? %>
-    <%= f.check_box :craft_category_id, {}, @category.id, nil%>
-    <%= f.submit %>
+
+<%= form_with model: @category do |f| %>
+    <%= f.radio_button :favorite, true, :checked => false %>
+    <%= f.label :favorite_category, "Yes" %>
+    <%= f.radio_button :favorite, false, :checked => true %>
+    <%= f.label :favorite_category, "No" %>
+
+    <%= f.submit "Update Favorite Status"%>
 <% end %>

@@ -1,23 +1,17 @@
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
+ <% if user.errors.any? %>
       <% user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <p><%= message %></p>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
+<% end %> 
 
- <div class="field">
+<div class="field">
     <%= label_tag :username %>
     <%= text_field_tag "user[username]" %>
   </div>
 
   <div class="field">
     <%= label_tag :password %>
-    <%= text_field_tag "user[password]" %>
+    <%= password_field_tag "user[password]" %>
   </div>
 
 
