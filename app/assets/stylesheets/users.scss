@@ -8,10 +8,6 @@
     text-align: center;
     margin-top: 10%;
   }
-
-  .link-container :hover {
-    background-color: rgba(146, 189, 117, 1)
-  }
   
   .stylebox {
     color: whitesmoke;
@@ -49,30 +45,60 @@
 
     .fav {
       float: left;
-      background-color: pink;
+      box-shadow: 3px 3px 6px rgb(223, 196, 196);
       border-radius: 20px;
-      width: 25%;
+      width: 33%;
       max-width: 400px;
       max-height: 400px;
-      color: rgb(196, 237, 236);
-      text-shadow: 2px 2px 5px white;
+      background-color: pink;
+      color:whitesmoke;
+      font-size: 36px;
       margin: 1%;
       text-align: center;
-      padding: 10% 0 11% 0;   
+      padding: 13% 0 13% 0;   
   }
 
-  h4 {
+  .papercraftslayout {
+    float: left;
+    box-shadow: 3px 3px 6px rgb(223, 196, 196);
+    border-radius: 20px;
+    width: 33%;
+    max-width: 400px;
+    max-height: 200px;
+    background-color: pink;
+    color:whitesmoke;
     font-size: 36px;
-    padding: 0;
-    margin: 0;
-    color: black;
-  }
+    margin: 1%;
+    text-align: center;
+    padding: 13% 0 13% 0;   
+}
+  
 
-  .papercrafts {
+  .papercrafts :hover {
     background: url("https://i.imgur.com/Z1vEgnJ.jpg");
-    opacity: 1;
+    opacity: .9;
     }
 
+  .carpentry :hover {
+    background: url("https://i.imgur.com/ZP8qpPo.jpg");
+    background-size: cover;
+    opacity: .9;
+  }
+
+  .homeimprovements :hover {
+    background: url("https://i.imgur.com/v5OVPuX.jpg");
+    background-size: cover;
+    opacity: .9;
+  }
+
+  .decorativeobjects :hover {
+    background: url("https://i.imgur.com/FhkunrC.jpg");
+    background-size: cover;
+    opacity: .9;
+  }
+
   .fav-container :hover {
-    opacity: .5;
+    color: rgb(24, 24, 24);
+    text-shadow: 2px 3px 3px white;
+
   }

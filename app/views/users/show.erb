@@ -1,16 +1,15 @@
-<% if session[:user_id] %>
-  <h2 class="home"><%= @user.username %>'s favorite crafts</h2>
+<h2 class="home"><%= @user.username %>'s favorite crafts</h2>
 <br>
-
-<% @user.craft_categories.uniq.each do |cat| %>
-<div class="fav-container">
+<% i = 0 %>
+<% if i <=12 %>
+  <% @user.craft_categories.uniq.each do |cat| %>
+    <div class="fav-container <%=cat.name.downcase.split(" ").join%>">
         <a href=<%=craft_category_path(cat)%>>
-        <div class="fav <%=cat.name.downcase.split(" ").join%>">
-            <h4><%= cat.name %></h4>
+        <div class="fav">
+            <%= cat.name %>
         </div>
         </a>
     </div>
+    <% i += 1 %>
+  <% end %>
 <% end %>
-<br>
-
-<%end%>
