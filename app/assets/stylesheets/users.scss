@@ -41,3 +41,38 @@
         margin-left: 35%;
         margin-right: 35%;
     }
+
+    .home {
+      text-align: center;
+      font-size: 40px;
+    }
+
+    .fav {
+      float: left;
+      background-color: pink;
+      border-radius: 20px;
+      width: 25%;
+      max-width: 400px;
+      max-height: 400px;
+      color: rgb(196, 237, 236);
+      text-shadow: 2px 2px 5px white;
+      margin: 1%;
+      text-align: center;
+      padding: 10% 0 11% 0;   
+  }
+
+  h4 {
+    font-size: 36px;
+    padding: 0;
+    margin: 0;
+    color: black;
+  }
+
+  .papercrafts {
+    background: url("https://i.imgur.com/Z1vEgnJ.jpg");
+    opacity: 1;
+    }
+
+  .fav-container :hover {
+    opacity: .5;
+  }

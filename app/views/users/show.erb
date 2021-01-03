@@ -1,15 +1,16 @@
 <% if session[:user_id] %>
-  <h2>Welcome, <%= @user.username %>!</h2>
+  <h2 class="home"><%= @user.username %>'s favorite crafts</h2>
 <br>
 
-<% @user.craft_categories.uniq.each do |category| %>
-<div class="container">
-        <div class="column">
-        <%= link_to category.name, craft_category_path(category) %>
+<% @user.craft_categories.uniq.each do |cat| %>
+<div class="fav-container">
+        <a href=<%=craft_category_path(cat)%>>
+        <div class="fav <%=cat.name.downcase.split(" ").join%>">
+            <h4><%= cat.name %></h4>
         </div>
+        </a>
     </div>
 <% end %>
 <br>
-Change the URL on this to "home" ? idk smth
 
 <%end%>
