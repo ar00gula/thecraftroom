@@ -1,12 +1,1 @@
-<% i = 0 %>
-<% if i <=12 %>
-<% @craft_categories.each do |cat| %>
-    <div class="fav-container <%=cat.name.downcase.split(" ").join%>">
-        <a href=<%=craft_category_path(cat)%>>
-        <div class="<%=cat.name.downcase.split(" ").join%>layout">
-            <%= cat.name %>
-        </div>
-        </a>
-    </div>
-<% end %>
-<% end %>
+  <%= render partial: "craft_categories/craft_tiles", locals: {craft_categories: @craft_categories} %>

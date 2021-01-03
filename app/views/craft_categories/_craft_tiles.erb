@@ -1,0 +1,12 @@
+<% i = 0 %>
+<% if i <=12 %>
+    <% craft_categories.each do |cat| %>
+        <div class="craft-container <%=cat.name.downcase.split(" ").join%>">
+            <a href=<%=craft_category_path(cat)%>>
+            <div class="craft-cat">
+                <%= cat.name %>
+            </div>
+            </a>
+        </div>
+    <% end %>
+<% end %>

@@ -43,7 +43,7 @@
       font-size: 40px;
     }
 
-    .fav {
+    .craft-cat {
       float: left;
       box-shadow: 3px 3px 6px rgb(223, 196, 196);
       border-radius: 20px;
@@ -58,20 +58,7 @@
       padding: 13% 0 13% 0;   
   }
 
-  .papercraftslayout {
-    float: left;
-    box-shadow: 3px 3px 6px rgb(223, 196, 196);
-    border-radius: 20px;
-    width: 33%;
-    max-width: 400px;
-    max-height: 200px;
-    background-color: pink;
-    color:whitesmoke;
-    font-size: 36px;
-    margin: 1%;
-    text-align: center;
-    padding: 13% 0 13% 0;   
-}
+
   
 
   .papercrafts :hover {
@@ -97,7 +84,7 @@
     opacity: .9;
   }
 
-  .fav-container :hover {
+  .craft-container :hover {
     color: rgb(24, 24, 24);
     text-shadow: 2px 3px 3px white;
 

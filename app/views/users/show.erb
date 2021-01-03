@@ -1,15 +1,3 @@
 <h2 class="home"><%= @user.username %>'s favorite crafts</h2>
 <br>
-<% i = 0 %>
-<% if i <=12 %>
-  <% @user.craft_categories.uniq.each do |cat| %>
-    <div class="fav-container <%=cat.name.downcase.split(" ").join%>">
-        <a href=<%=craft_category_path(cat)%>>
-        <div class="fav">
-            <%= cat.name %>
-        </div>
-        </a>
-    </div>
-    <% i += 1 %>
-  <% end %>
-<% end %>
+<%= render partial: "craft_categories/craft_tiles", locals: {craft_categories: @user.craft_categories.uniq} %>
