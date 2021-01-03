@@ -27,6 +27,11 @@ craft_category_list ={
     :name => "Decorative Objects",
     :notes => "table centerpieces, cute things, etc"
   }
+
+  "other" => {
+    :name => "Other",
+    :notes => "Catchall Category"
+  }
 }
 
 craft_category_list.each do |name, craft_category_hash|

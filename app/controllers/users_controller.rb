@@ -67,7 +67,6 @@ class UsersController < ApplicationController
       u.username = username
 
     end
-    byebug
 
     session[:user_id] = @user.id
 
