@@ -1,15 +1,17 @@
-<h1>Sign Up</h1>
+<h2 class="pre-login h2">Sign Up</h2>
+<div class="stylebox">
+  <%= form_with model: @user, local: true do |f| %>
+  <%= render partial: "users/form", locals: {user: @user} %>
+    <div class="field form">
+      <%= f.label "Confirm Password" %>
+      <%= f.password_field :password_confirmation %>
+    </div>
+    <br>
+    <div class="actions form">
+      <%= f.submit "Sign Up" %>
+    </div>
+  <% end %>
+  <div class="options-bar"><%= link_to 'Or click here to Log In', login_path %></div>
 
-<%= form_with model: @user, local: true do |f| %>
-<%= render partial: "users/form", locals: {user: @user} %>
-   <div class="field">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-  </div>
+</div>
 
-  <div class="actions">
-    <%= f.submit "Sign Up" %>
-  </div>
-<% end %>
-
-<%= link_to 'Back', users_path %>

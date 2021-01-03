@@ -12,10 +12,12 @@ class UsersController < ApplicationController
 
   def signup
     @user = User.new
+    render :layout => "homepage"
   end
 
   def login
     @user = User.new
+    render :layout => "homepage"
   end
 
   def show

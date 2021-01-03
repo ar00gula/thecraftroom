@@ -22,27 +22,3 @@
 .no_bullets {
   list-style: none;
 }
-
-.homepage {
-  color: whitesmoke;
-  font-size: 90px;
-  text-align: center;
-  margin-top: 10%;
-}
-
-.link-container :hover {
-  background-color: rgba(146, 189, 117, 1)
-}
-
-.link {
-  text-align: center;
-  color: whitesmoke;
-  text-align: center;
-  font-size: 25px;
-  padding: 1.5%;
-  background-color: rgba(146, 189, 117, 0.65);
-  margin-left: 30%;
-  margin-right: 30%;
-  margin-bottom: 10px;
-  border-radius: 20px;
-}
