@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :supplies
   resources :supply_categories, except: :new
   resources :users, except: [:new, :show]
-  get '/', to: 'application#index', as: 'homepage'
+  get '/', to: 'application#homepage', as: 'homepage'
   get '/login', to: 'users#login'
   post '/login', to: 'users#create_session'
   get '/signup', to: 'users#signup'

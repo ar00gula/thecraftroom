@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
     helper_method :current_user, :logged_in?
 
-    def index
+    def homepage
+        render :layout => "homepage"
     end
 
     def current_user
