@@ -35,7 +35,6 @@ label {
     }
 
     .wrapper {
-      background: inherit;
       margin: auto auto;
       padding: 1.5% 2.25%; /* 18px / 800px */
       width: 90%;
@@ -48,7 +47,7 @@ label {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color:rgb(198, 233, 176);
+  background-color:rgba(198, 233, 176, .7);
 }
 
 .li {

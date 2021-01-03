@@ -22,3 +22,25 @@
 .no_bullets {
   list-style: none;
 }
+
+.homepage {
+  color: whitesmoke;
+  font-size: 80px;
+  text-align: center;
+  margin-top: 15%;
+}
+
+.link-container {
+  display: inline;
+  text-align: center;
+  background-color: rgba(146, 189, 117, 0.733);
+  border-radius: 20px;
+}
+
+.link {
+  display: inline;
+  color: whitesmoke;
+  text-align: center;
+    font-size: 25px;
+  padding: 1%;
+}
