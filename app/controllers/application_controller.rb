@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-    helper_method :current_user, :logged_in?
+    helper_method :current_user, :logged_in?, :no_double_dipping
+    before_action :no_double_dipping, only: :homepage
 
     def homepage
         render :layout => "homepage"
@@ -14,6 +15,12 @@ class ApplicationController < ActionController::Base
         else
           redirect_to '/signup'
           #ADD FLASH MESSAGE HERE
+        end
+    end
+
+    def no_double_dipping
+        if current_user
+          redirect_to '/home'
         end
     end
 

@@ -1,6 +1,6 @@
 <h2 class="pre-login h2">Sign Up</h2>
 <div class="stylebox">
-  <%= form_with model: @user, local: true do |f| %>
+  <%= form_with model: @user, url: '/signup', local: true do |f| %>
   <%= render partial: "users/form", locals: {user: @user} %>
     <div class="field form">
       <%= f.label "Confirm Password" %>

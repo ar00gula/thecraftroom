@@ -18,6 +18,17 @@ a:hover {
 label {
   display: inherit; }
 
+p {
+  font-size: 16px;
+  display: inherit; }
+
+h1 { 
+  font-size: 90px; }
+
+h2 {
+  font-size: 60px; }
+
+
 /*general*/
 
     .bg {
@@ -26,11 +37,12 @@ label {
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-      opacity: 90%;
+      opacity: 95%;
+      background-color:rgb(175, 119, 119);
+      
     }
     
     body {
-      background-color: #fff;
       color: #333;
       font-family: helvetica, arial sans-serif;
     }
@@ -116,12 +128,12 @@ pre {
   color: green; }
 
 .field_with_errors {
+  display: inherit;
+  background-color: rgb(177, 112, 123);
   padding: 2px;
-  background-color: red;
-  display: table; }
+ }
 
 #error_explanation {
-  width: 450px;
   border: 2px solid red;
   padding: 7px 7px 0;
   margin-bottom: 20px;

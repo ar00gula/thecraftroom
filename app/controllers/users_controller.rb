@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in?, only: [:index, :show, :destroy]
+  before_action :no_double_dipping, only: [:signup, :login]
 
   def index
     @users = User.all
@@ -43,7 +44,7 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         redirect_to '/home'
     else
-        render :signup, notice: "You did it wrong, asshole. Try again."
+        render :signup, :layout => "homepage"
     end
   end
 
@@ -88,5 +89,6 @@ class UsersController < ApplicationController
   def auth
     request.env['omniauth.auth']
   end
+
 
 end
