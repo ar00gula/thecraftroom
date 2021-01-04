@@ -1,3 +1,18 @@
+general layout:
+add footer
+
+
+user:
+add ability to edit information
+
+homepage:
+
+- make it so that the boxes are centered even when there are less than three
+- add delay so things feel a bit less abrupt
+
+
+
+
 /////////
 
 

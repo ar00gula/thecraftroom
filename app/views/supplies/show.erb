@@ -1,8 +1,14 @@
-<h2><%= @supply.name %></h2>
-<ul>
-<li><%= @supply.notes%></li>
-<li>In Stock?: <%= @supply.in_stock ? ("Yes") : ("No") %></li>
+<p><%=link_to "Back to Supply Categories", supply_categories_path %></p>
 
+<h2 class="page-heading"><%= @supply.name %></h2>
+<h4>Category: <%= link_to  @supply.supply_category.name, supply_category_path(@supply.supply_category_id) %></h4>
+<ul class="no-bullets">
+    <h4>Notes:</h4>
+        <% if @supply.notes != "" %>
+            <li><%= @supply.notes%></li>
+        <% end %>
+    <h4>In Stock?</h4>
+    <ul><%= @supply.in_stock ? ("Yes!") : ("No :(") %></ul>
 </ul>
 
 
@@ -10,9 +16,17 @@
 <br>
 <br>
 
-<footer>Most Recent Update: <%= @supply.updated_at %></footer> figure out how to put this into a layout view
-
-
-LEAVING THIS FOR A BIT, I'VE GOT THE PROGRAMMING AND WILL DECIDE WHETHER OR NOT TO ADD COUNT TO THIS L A T E R
-
-NEED TO FIX IT SO THAT IN STOCK IS NOT OPTIONAL
+<%= @message %>
+<%= form_with model: @supply, local: true do |f| %>
+<div class="yesno">
+    <%= f.radio_button :in_stock, true, :checked => @supply.in_stock==true %>
+    <%= f.label :in_stock, "Yes" %>
+    <%= f.radio_button :in_stock, false, :checked => !@supply.in_stock==true %>
+    <%= f.label :in_stock, "No" %>
+    <br><br>
+    <%= f.submit "Update Stock"%>
+</div>
+<%end%>
+<br>
+<br>
+<footer>Most Recent Update: <%= @supply.updated_at %></footer>

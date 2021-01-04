@@ -13,14 +13,18 @@ Rails.application.routes.draw do
   resources :crafts, :path =>"activities"
 
   resources :supplies
+  patch '/supply', to: 'supplies#update_stock'
+  
   resources :supply_categories, except: :new
   resources :users, except: [:new, :show]
   get '/', to: 'application#homepage', as: 'homepage'
   get '/login', to: 'users#login'
   post '/login', to: 'users#create_session'
+  patch '/login', to: 'users#create_session'
   get '/signup', to: 'users#signup'
   post '/signup', to: 'users#create'
   get '/home', to: 'users#show'
+
 
   get '/auth/facebook/callback' => 'users#create_facebook'
   

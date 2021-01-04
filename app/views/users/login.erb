@@ -1,12 +1,15 @@
 <h2 class="pre-login">Log In</h2>
 <div class="stylebox login">
 <%= form_with model: @user, url: '/login', local: true do |f| %>
+  <% if @message %>
+        <p class="error-message"><%=@message%></p>
+  <% end %> 
+
   <%= render partial: "users/form", locals: {user: @user} %>
+
   <br>
-  <div class="action form">
   <%= f.submit "Log In" %>
-  </div>
 <% end %>
-  <div class="options-bar"><%= link_to "Or click here to Sign Up", signup_path %></div>
+  <div class="options-bar"><%= link_to "Click here to Sign Up", signup_path %></div>
 </div>
 <br>

@@ -1,0 +1,7 @@
+<div class="yesno">
+    <%= f.radio_button :favorite, true, :checked => current_user.craft_categories.include?(@category) %>
+    <%= f.label :favorite_category, "Yes" %>
+    <%= f.radio_button :favorite, false, :checked => !current_user.craft_categories.include?(@category) %>
+    <%= f.label :favorite_category, "No" %>
+    <br><br>
+</div>

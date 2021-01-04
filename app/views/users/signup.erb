@@ -1,7 +1,14 @@
 <h2 class="pre-login h2">Sign Up</h2>
 <div class="stylebox">
   <%= form_with model: @user, url: '/signup', local: true do |f| %>
-  <%= render partial: "users/form", locals: {user: @user} %>
+     <% if @user.errors.any? %>
+        <% @user.errors.full_messages.each do |message| %>
+          <p class="error-message"><%= message %></p>
+        <% end %>
+    <% end %> 
+
+    <%= render partial: "users/form", locals: {user: @user} %>
+
     <div class="field form">
       <%= f.label "Confirm Password" %>
       <%= f.password_field :password_confirmation %>
@@ -11,7 +18,7 @@
       <%= f.submit "Sign Up" %>
     </div>
   <% end %>
-  <div class="options-bar"><%= link_to 'Or click here to Log In', login_path %></div>
+  <div class="options-bar"><%= link_to 'Click here to Log In', login_path %></div>
 
 </div>
 

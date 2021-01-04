@@ -51,6 +51,19 @@ class SuppliesController < ApplicationController
     end
   end
 
+  def update_stock
+    @supply = Supply.find(params[:id])
+
+    if supply[:in_stock] == "true"
+        @supply.in_stock == true
+    else
+        @supply.in_stock == false
+    end
+    
+    @message = "Updated!"
+    render :show 
+end
+
   def destroy
   end
 

@@ -27,13 +27,14 @@ class UsersController < ApplicationController
   end
 
   def create_session
-    user = User.find_by(username: params[:user][:username])
+    @user = User.find_by(username: params[:user][:username])
 
-    if user && user.authenticate(params[:user][:password])
-      session[:user_id] = user.id
+    if @user && @user.authenticate(params[:user][:password])
+      session[:user_id] = @user.id
       redirect_to home_path
     else
-      redirect_to '/signup'
+      @message = "There is a problem with the username or password."
+      render :login, :layout=> "homepage"
     end
   end
 

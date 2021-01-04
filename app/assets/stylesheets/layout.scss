@@ -29,6 +29,13 @@ h2 {
   font-size: 48px;
 }
 
+.message {
+  color: rgb(174, 130, 137)
+}
+
+.error-message {
+  color: rgb(253, 209, 216)
+}
 
 /*general*/
 
@@ -116,6 +123,10 @@ h2 {
 
 .no-line-break {
   display: inline;
+}
+
+.no-bullets {
+  list-style-type: none;
 }
 
 //scaffolded 

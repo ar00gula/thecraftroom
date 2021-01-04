@@ -1,3 +1,4 @@
+
 <%= form_with model: @supply do |f| %>
 
     <%= f.label :name %>
@@ -9,7 +10,12 @@
     <br><br>
 
     <%= f.label :category %>
-    <%= f.collection_select :supply_category_id, @supply_categories, :id, :name %>
+        <% if @supply.supply_category_id %>
+            <%= f.collection_select :supply_category_id, @supply_categories, :id, :name, selected: @supply.supply_category_id %>
+        <% else %>
+            <%= f.collection_select :supply_category_id, @supply_categories, :id, :name %>
+        <% end %>
+
     <br><br>
     <%= f.label :in_stock? %>
         <label class="switch">
