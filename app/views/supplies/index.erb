@@ -1,5 +1,5 @@
 <% @categories.each do |sc| %>
-    <% unless sc.name == "Create New" %>
+    <% if sc.supplies.count > 0 %>
         <h4><%= link_to sc.name, supply_category_path(sc)%></h4>
         <ol>
         <% sc.supplies.each do |s| %>

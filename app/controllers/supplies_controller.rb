@@ -63,6 +63,9 @@ class SuppliesController < ApplicationController
 end
 
   def destroy
+    supply = Supply.find(params[:id])
+    supply.destroy
+    redirect_to supplies_path
   end
 
   private
