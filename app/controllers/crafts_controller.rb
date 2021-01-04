@@ -1,6 +1,10 @@
 class CraftsController < ApplicationController
   before_action :logged_in?
 
+  def index
+    @crafts = Craft.all
+  end
+
   def show
     @craft = Craft.find(params[:id])
   end

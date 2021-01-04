@@ -1,6 +1,15 @@
 // Place all the styles related to the craft_categories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.yesno {
+  display: inline;
+}
+
+.message {
+  color: rgb(174, 130, 137)
+}
+
 .craft-column {
     float: left;
     background-color: pink;

@@ -1,17 +1,22 @@
-<h2><%= @category.name %></h2>
+<h2 class="page-heading"><%= @category.name %></h2>
 <ul>
 <% @category.crafts.each do |craft| %>
     <li><%=link_to craft.name, craft_category_craft_path(craft)%></li>
 <% end %>
 </ul>
-
-<%= form_with model: @category do |f| %>
-    <%= f.radio_button :favorite, true, :checked => false %>
-    <%= f.label :favorite_category, "Yes" %>
-    <%= f.radio_button :favorite, false, :checked => true %>
-    <%= f.label :favorite_category, "No" %>
-
-    <%= f.submit "Update Favorite Status"%>
-<% end %>
-
+<br><br><br>
 <p><%= link_to "Create New Activity", new_craft_category_craft_path(@category) %></p>
+
+<br>
+<p class="message"><%= @message %></p>
+<label>Favorite Category?</label>
+<%= form_with model: @category, local: true do |f| %>
+<div class="yesno">
+    <%= f.radio_button :favorite, true, :checked => current_user.craft_categories.include?(@category) %>
+    <%= f.label :favorite_category, "Yes" %>
+    <%= f.radio_button :favorite, false, :checked => !current_user.craft_categories.include?(@category) %>
+    <%= f.label :favorite_category, "No" %>
+    <br><br>
+    <%= f.submit "Update Favorite Status"%>
+    </div>
+<% end %>

@@ -1,3 +1,6 @@
+/////////
+
+
 supply belongs to user
 RIGHT NOW YOU CAN ONLY HAVE ONE INSTANCE OF A SUPPLY AND ANYTHING ABOUT NUMBER HAS TO BE IN NOTES
 
@@ -31,5 +34,4 @@ DESIGN
     Supplies --> supply index page for Category
     (craftcategory/:id/supplies)
         - see full list of supplies in this category
-
 

@@ -14,7 +14,7 @@ class CraftCategoriesController < ApplicationController
         cat = CraftCategory.find(params[:id])
 
         if favorite_params[:favorite] == "true"
-            if user.craft_categories
+            if !user.craft_categories.include?(cat)
                 user.craft_categories << cat
             else
                 FavoriteCraftCategory.create(user_id: user.id, craft_category_id: cat.id)
@@ -28,7 +28,9 @@ class CraftCategoriesController < ApplicationController
             end
             user.save
         end
-        redirect_to craft_category_path(cat)
+        @message = "Updated!"
+        @category = CraftCategory.find(params[:id])
+        render :show 
     end
 
     private

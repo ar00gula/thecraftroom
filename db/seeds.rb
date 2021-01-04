@@ -30,7 +30,7 @@ craft_category_list ={
 
   "other" => {
     :name => "Other",
-    :notes => "Catchall Category"
+    :notes => "Catch-all Category"
   }
 }
 
