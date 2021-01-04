@@ -3,13 +3,16 @@
         <h4><%= link_to sc.name, supply_category_path(sc)%></h4>
         <ol>
         <% sc.supplies.each do |s| %>
-        <li><%= link_to s.name, supply_path(s) %></li>
-        <ul>
-        <li><%= s.notes %></li>
-        <li>Last Updated: <%= s.updated_at.strftime("%x") %> (eventually this should appear on hover)</i>
-        </ul>
+            <li class="appear"><%= link_to s.name, supply_path(s) %></li>
+            <ul>
+            <% if s.notes != "" %>
+                <li><%= s.notes%></li>
+            <% end %>
+            <li class="hover">Last Updated: <%= s.updated_at.strftime("%x") %></li>
+            </ul>
+        <% end %>
+        </ol>
     <% end %>
 <% end %>
-</ol>
-<% end %>
+
 <%= link_to "Log Supply", new_supply_path %>

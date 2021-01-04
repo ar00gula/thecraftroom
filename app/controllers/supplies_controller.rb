@@ -59,8 +59,6 @@ class SuppliesController < ApplicationController
     else
         @supply.in_stock == false
     end
-    
-    @message = "Updated!"
     render :show 
 end
 

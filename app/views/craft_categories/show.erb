@@ -11,7 +11,7 @@
 <p class="message"><%= @message %></p>
 <label>Favorite Category?</label>
 <%= form_with model: @category, local: true do |f| %>
-<div class="yesno">
+<div class="inline">
     <%= f.radio_button :favorite, true, :checked => current_user.craft_categories.include?(@category) %>
     <%= f.label :favorite_category, "Yes" %>
     <%= f.radio_button :favorite, false, :checked => !current_user.craft_categories.include?(@category) %>

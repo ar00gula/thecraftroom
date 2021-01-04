@@ -23,11 +23,18 @@ h1 {
   font-size: 90px; }
 
 h2 {
-  font-size: 60px; }
+  font-size: 60px; 
+}
 
 .page-heading {
   font-size: 48px;
+  margin: 2% 0 1% 0;
 }
+
+.category {
+  margin: 0 0px 2% 2%;
+}
+
 
 .message {
   color: rgb(174, 130, 137)
@@ -46,13 +53,14 @@ h2 {
       background-repeat: no-repeat;
       background-size: cover;
       opacity: 95%;
-      background-color:rgb(175, 119, 119);
+      background-color:rgb(255, 246, 242);
       
     }
     
     body {
       color: #333;
       font-family: helvetica, arial sans-serif;
+      background-color:rgb(255, 246, 242);
     }
 
     .wrapper {
@@ -121,6 +129,10 @@ h2 {
   text-decoration: line-through;
 }
 
+.inline {
+  display: inline;
+}
+
 .no-line-break {
   display: inline;
 }
@@ -128,6 +140,12 @@ h2 {
 .no-bullets {
   list-style-type: none;
 }
+
+.link {
+  color: maroon;
+  font-weight: bold;
+}
+
 
 //scaffolded 
 

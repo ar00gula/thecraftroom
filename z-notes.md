@@ -1,5 +1,10 @@
+SEED WITH INFO FOR DEMONSTRATION
+
 general layout:
 add footer
+change radio buttons to sliders
+custom formatting on all buttons
+change literally all colors
 
 
 user:
@@ -10,7 +15,9 @@ homepage:
 - make it so that the boxes are centered even when there are less than three
 - add delay so things feel a bit less abrupt
 
+Add Supplies:
 
+There are validations in place, but I don't have error messages for them. Goal: make it so that already-in-place fieldswitherrors can be used
 
 
 /////////
