@@ -1,7 +1,7 @@
 <h2 class="page-heading"><%= @category.name %></h2>
 <ul>
 <% @category.crafts.sort.each do |craft| %>
-    <li class="no-bullets"><%=link_to craft.name, craft_category_craft_path(craft)%></li>
+    <li class="craft-list"><%=link_to craft.name, craft_category_craft_path(craft)%></li>
 <% end %>
 </ul>
 <br><br><br>
@@ -9,14 +9,11 @@
 
 <br>
 <p class="message"><%= @message %></p>
-<label>Favorite Category?</label>
 <%= form_with model: @category, local: true do |f| %>
-<div class="inline">
-    <%= f.radio_button :favorite, true, :checked => current_user.craft_categories.include?(@category) %>
-    <%= f.label :favorite_category, "Yes" %>
-    <%= f.radio_button :favorite, false, :checked => !current_user.craft_categories.include?(@category) %>
-    <%= f.label :favorite_category, "No" %>
+    <label>Favorite Category?</label>
+    <label class="switch">
+    <%= f.check_box :favorite, :checked => current_user.craft_categories.include?(@category)%>
+    <span class="slider round"></span></label>
     <br><br>
     <%= f.submit "Update Favorite Status"%>
-    </div>
 <% end %>

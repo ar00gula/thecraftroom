@@ -50,7 +50,7 @@ h2 {
   border-style: solid;
   border-radius: 20px;
   width: 50%;
-  padding: 1%;
+  padding: .5% 1%;
   margin: 0px 0px 0px 3%;
   border-color: rgba(128, 128, 128, 0.749);
 
@@ -79,6 +79,14 @@ h2 {
       width: 90%;
 
     }
+
+    input[type=submit] {
+      background-color: #DEEFB7;
+      font-style: helvetica;
+      font-size: 16px;
+      padding: 10px;
+      border-style: solid;
+    }
 /* navbar */
 
 .navbar-ul {
@@ -86,7 +94,7 @@ h2 {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color:rgba(198, 233, 176, .7);
+  background-color: #DEEFB7;
 }
 
 .li {
