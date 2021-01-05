@@ -1,11 +1,11 @@
 <h2 class="page-heading"><%= @category.name %></h2>
 <ul>
-<% @category.crafts.each do |craft| %>
-    <li><%=link_to craft.name, craft_category_craft_path(craft)%></li>
+<% @category.crafts.sort.each do |craft| %>
+    <li class="no-bullets"><%=link_to craft.name, craft_category_craft_path(craft)%></li>
 <% end %>
 </ul>
 <br><br><br>
-<p><%= link_to "Create New Activity", new_craft_category_craft_path(@category) %></p>
+<p class="link"><%= link_to "Log New Activity", new_craft_category_craft_path(@category) %></p>
 
 <br>
 <p class="message"><%= @message %></p>

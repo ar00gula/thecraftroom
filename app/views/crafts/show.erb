@@ -1,5 +1,5 @@
-<h2><%= @craft.name %></h2>
-<h3><%= @craft.notes %> make this be in a lil info box</h3>
+<h2 class="page-heading"><%= @craft.name %></h2>
+<div class="box"><h3>Notes: <%= @craft.notes %></h3></div>
 <h4>Supplies</h4>
 <ul>
 <% @craft.supplies.each do |supply| %>
@@ -12,6 +12,8 @@
 </ul>
 
 <p><%= "#{@craft.supplies.in_stock.count} of #{@craft.supplies.count} supplies in stock." %></p>
+
+<p class="link"><%= link_to "Back to Craft Category", craft_category_path(@craft.craft_category) %></p>
 
 <p><%= link_to "Assign Supplies", edit_craft_path(@craft) %></p>
 <p><%= link_to "Log New Supplies", new_supply_path %></p>
