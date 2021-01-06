@@ -27,17 +27,16 @@
 /* updated */
 .craft-cat {
     float: left;
-    box-shadow: 3px 3px 6px rgb(223, 196, 196);
+    padding-top: 150px;
+    box-shadow: 2px 2px 8px rgb(65, 70, 70);
     border-radius: 20px;
-    width: 33%;
-    max-width: 400px;
-    max-height: 400px;
+    width: 31%;
+    height: 250px;
     background-color: pink;
     color:whitesmoke;
     font-size: 36px;
     margin: 1%;
     text-align: center;
-    padding: 13% 0 13% 0;   
 }
 
 .papercrafts :hover {
