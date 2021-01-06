@@ -8,11 +8,14 @@
 <p class="link"><%= link_to "Log New Activity", new_craft_category_craft_path(@category) %></p>
 
 <p class="message"><%= @message %></p>
+<h4>Favorite Category?</h4>
 <%= form_with model: @category, local: true do |f| %>
-    <h4>Favorite Category?</h4>
-    <label class="switch">
-    <%= f.check_box :favorite, :checked => current_user.craft_categories.include?(@category)%>
-    <span class="slider round"></span></label>
+<div class="inline">
+    <%= f.radio_button :favorite, true, :checked => current_user.craft_categories.include?(@category) %>
+    <%= f.label :favorite_category, "Yes" %>
+    <%= f.radio_button :favorite, false, :checked => !current_user.craft_categories.include?(@category) %>
+    <%= f.label :favorite_category, "No" %>
     <br>
-    <%= f.submit "update"%>
+    <%= f.submit "update" %>
+    </div>
 <% end %>
