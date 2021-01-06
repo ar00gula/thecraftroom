@@ -1,6 +1,6 @@
-<h2><%= @craft.name %></h2>
-<h4>Add Supply</h4>
-
+<h2 class="page-heading"><%= @craft.name %></h2>
+<h4 class="list">Add Supply</h4>
+<div>
 <%= form_with model: @craft do |f| %>
     <% if @craft.errors.any? %>
         <div id="error_explanation">
@@ -21,7 +21,7 @@
     <div class="no_bullets">
             <%= sc.name %>
                 <li><%= f.collection_check_boxes :supply_ids, sc.supplies, :id, :name do |supply| %>
-            <%= supply.label(class: 'checkbox_container') {supply.check_box + " " + supply.text} %><br>
+            <%= supply.label(class: 'checkbox_container') {supply.check_box + " " + supply.text} %>
             </div>
         <% end %></li>    
         <% end %>
@@ -32,3 +32,4 @@
     <%= f.submit "Edit Supplies"%>
 
 <% end %>
+</div>

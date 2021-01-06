@@ -1,6 +1,6 @@
 <h2 class="page-heading"><%= @craft.name %></h2>
 <div class="box"><h3>Notes: <%= @craft.notes %></h3></div>
-<h4>Supplies</h4>
+<h4 class="list">Supplies</h4>
 <ul>
 <% @craft.supplies.each do |supply| %>
     <% if supply.in_stock %>

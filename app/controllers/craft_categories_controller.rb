@@ -13,7 +13,7 @@ class CraftCategoriesController < ApplicationController
         user = current_user
         cat = CraftCategory.find(params[:id])
 
-        if favorite_params[:favorite] == "true"
+        if favorite_params[:favorite] == "1"
             if !user.craft_categories.include?(cat)
                 user.craft_categories << cat
             else

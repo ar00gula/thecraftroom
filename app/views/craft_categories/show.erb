@@ -1,19 +1,18 @@
 <h2 class="page-heading"><%= @category.name %></h2>
 <ul>
 <% @category.crafts.sort.each do |craft| %>
-    <li class="craft-list"><%=link_to craft.name, craft_category_craft_path(craft)%></li>
+    <li class="list"><%=link_to craft.name, craft_category_craft_path(craft)%></li>
 <% end %>
 </ul>
 <br><br><br>
 <p class="link"><%= link_to "Log New Activity", new_craft_category_craft_path(@category) %></p>
 
-<br>
 <p class="message"><%= @message %></p>
 <%= form_with model: @category, local: true do |f| %>
-    <label>Favorite Category?</label>
+    <h4>Favorite Category?</h4>
     <label class="switch">
     <%= f.check_box :favorite, :checked => current_user.craft_categories.include?(@category)%>
     <span class="slider round"></span></label>
-    <br><br>
-    <%= f.submit "Update Favorite Status"%>
+    <br>
+    <%= f.submit "update"%>
 <% end %>

@@ -26,9 +26,14 @@ h2 {
   font-size: 60px; 
 }
 
+h4 {
+  margin-bottom: 10px;
+}
+
 .page-heading {
   font-size: 48px;
   margin: 2% 0 1% 0;
+  color: rgb(65, 70, 70);
 }
 
 .category {
@@ -37,7 +42,7 @@ h2 {
 
 
 .message {
-  color: rgb(174, 130, 137)
+  color: #5a2d68;
 }
 
 .error-message {
@@ -63,14 +68,14 @@ h2 {
       background-repeat: no-repeat;
       background-size: cover;
       opacity: 95%;
-      background-color:rgb(255, 246, 242);
+      background-color: #98DFAF;
       
     }
     
     body {
-      color: #333;
+      color: rgb(65, 70, 70);
       font-family: helvetica, arial sans-serif;
-      background-color:rgb(255, 246, 242);
+      background-color: #3db391d2;
     }
 
     .wrapper {
@@ -81,11 +86,15 @@ h2 {
     }
 
     input[type=submit] {
-      background-color: #DEEFB7;
-      font-style: helvetica;
+      background-color: #98DFAF;
+      color: whitesmoke;
+      font-weight: bold;
       font-size: 16px;
-      padding: 10px;
-      border-style: solid;
+      padding: 12px;
+      margin: 10px;
+      border-style: none;
+      box-shadow: 2px 2px 4px rgb(65, 70, 70);
+      border-radius: 20px;
     }
 /* navbar */
 
@@ -160,7 +169,12 @@ h2 {
 }
 
 .link {
-  color: maroon;
+  color: #414288;
+  font-weight: bold;
+}
+
+.link a:visited {
+  opacity: 40%;
   font-weight: bold;
 }
 

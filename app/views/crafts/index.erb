@@ -1,6 +1,6 @@
 <h2 class="page-heading">All Crafts</h2>
 
-<ul>
+<ul class="list">
 <% @crafts.each do |craft| %>
 <li><%= link_to craft.name, craft_path(craft) %></li>
 <% end %>
