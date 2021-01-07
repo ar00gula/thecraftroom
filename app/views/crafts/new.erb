@@ -14,6 +14,7 @@
     </ul>
   </div>
 <% end %>
+<div class="courier">
     <%= f.label :name %>
     <%= f.text_field :name %>
     <br><br>
@@ -29,7 +30,8 @@
       <%= f.collection_select :craft_category_id, @craft_categories, :id, :name %>
     <% end %>
     <br><br>
+    </div>
 
-    <%= f.submit "Add Craft"%>
+    <input type="submit" class="page-button" value="Add Craft">
 
 <% end %>

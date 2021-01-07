@@ -1,7 +1,7 @@
 <% @categories.each do |sc| %>
     <% if sc.supplies.count > 0 %>
-        <h4><%= link_to sc.name, supply_category_path(sc)%></h4>
-        <ol>
+        <h3 class="courier"><%= link_to sc.name, supply_category_path(sc)%></h3>
+        <ul class="no-bullets">
         <% sc.supplies.each do |s| %>
             <li class="appear"><%= link_to s.name, supply_path(s) %></li>
             <ul>
@@ -11,7 +11,7 @@
             <li class="hover">Last Updated: <%= s.updated_at.strftime("%x") %></li>
             </ul>
         <% end %>
-        </ol>
+        </ul>
     <% end %>
 <% end %>
 

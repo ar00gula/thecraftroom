@@ -6,6 +6,7 @@ html, body {
 }
 
 a {
+
   color: inherit;
   text-decoration: inherit; }
 
@@ -52,8 +53,7 @@ h4 {
 /*general*/
 
 .box {
-  border-style: solid;
-  border-radius: 20px;
+  border-bottom: solid;
   width: 50%;
   padding: .5% 1%;
   margin: 0px 0px 0px 3%;
@@ -73,9 +73,9 @@ h4 {
     }
     
     body {
-      color: rgb(65, 70, 70);
+      color: rgb(90, 95, 95);
       font-family: helvetica, arial sans-serif;
-      background-color: #e0c4a1e3;
+      background-color: #e0c4a194;
     }
 
     .courier {
@@ -99,6 +99,25 @@ h4 {
       box-shadow: 2px 2px 4px rgb(65, 70, 70);
       border-radius: 20px;
     }
+
+    // .footer {
+    //   position: fixed;
+    //   left: 0;
+    //   bottom: 0;
+    //   width: 95%;
+    //   border-top: solid;
+    //   float: center;
+    //   padding: .5%;
+    //   margin-left: 2.5%;
+    //   background-color: #e0c4a1e3;
+    // }
+
+    .page-footer {
+      position: fixed;
+      left: 5%;
+      bottom: 5%;
+    }
+
 /* navbar */
 
 .navbar-ul {
@@ -172,13 +191,29 @@ h4 {
 }
 
 .link {
-  color: #414288;
+  color: #214577cc  ;
   font-weight: bold;
+}
+
+.back-link {
+  color: #214577cc;
+  max-width: 200px;
+  font-weight: bold;
+  font-size: 18px;
+  border-top: solid;
+  border-bottom: solid;
+  padding: 10px 0px;
+  position: absolute;
+  bottom: 2%;
 }
 
 .link a:visited {
   opacity: 40%;
   font-weight: bold;
+}
+
+.page-button {
+  background-color: #214577cc; 
 }
 
 

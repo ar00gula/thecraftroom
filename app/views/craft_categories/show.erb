@@ -1,21 +1,16 @@
 <h2 class="page-heading"><%= @category.name %></h2>
-<ul>
-<% @category.crafts.sort.each do |craft| %>
-    <li class="list"><%=link_to craft.name, craft_category_craft_path(craft)%></li>
-<% end %>
-</ul>
-<br><br><br>
-<p class="link"><%= link_to "Log New Activity", new_craft_category_craft_path(@category) %></p>
 
-<p class="message"><%= @message %></p>
-<h4>Favorite Category?</h4>
-<%= form_with model: @category, local: true do |f| %>
-<div class="inline">
-    <%= f.radio_button :favorite, true, :checked => current_user.craft_categories.include?(@category) %>
-    <%= f.label :favorite_category, "Yes" %>
-    <%= f.radio_button :favorite, false, :checked => !current_user.craft_categories.include?(@category) %>
-    <%= f.label :favorite_category, "No" %>
-    <br>
-    <%= f.submit "update" %>
-    </div>
-<% end %>
+<ul>
+    <% @category.crafts.sort.each do |craft| %>
+        <li class="list"><%=link_to craft.name, craft_category_craft_path(craft)%></li>
+    <% end %>
+</ul>
+
+<br><br><br>
+<div class="link"><%= link_to "Log New Activity", new_craft_category_craft_path(@category) %></div>
+
+<div class="page-footer">
+    <p class="message"><%= @message %></p>
+    <h4>Favorite Category?</h4>
+    <%= render partial: "application/radio_buttons", locals: {category: @category} %>
+</div>

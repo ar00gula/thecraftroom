@@ -1,13 +1,10 @@
-<% i = 0 %>
-<% if i <=12 %>
-    <% craft_categories.each do |cat| %>
-        <div class="craft-container list <%=cat.name.downcase.split(" ").join%>">
-            <a href=<%=craft_category_path(cat)%>>
-            <div class="craft-cat">
-                    <%= cat.name.split(" ")[0] %><br>
-                    <%= cat.name.split(" ")[1] %>
-            </div>
-            </a>
+<% craft_categories.each do |cat| %>
+    <div class="craft-container list <%=cat.name.downcase.split(" ").join%>">
+        <a href=<%=craft_category_path(cat)%>>
+        <div class="craft-cat">
+                <%= cat.name.split(" ")[0] %><br>
+                <%= cat.name.split(" ")[1] %>
         </div>
-    <% end %>
+        </a>
+    </div>
 <% end %>
