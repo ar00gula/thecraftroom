@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
-.pre-login {
+.pre-login-header {
     color: whitesmoke;
     text-align: center;
     margin-top: 10%;
@@ -20,6 +20,11 @@
     margin-bottom: 10px;
     border-radius: 20px;
   }
+
+.button {
+      background-color: #ead087;
+  }
+
     .form {
         font-size: 20px;
         padding: 2.5%;
@@ -28,7 +33,7 @@
 
     .options-bar {
         font-size: 16px;
-        margin-top: 2px;
+        margin-top: 5px;
         color: rgb(226, 215, 151);
         opacity: 100%;
     }
@@ -40,7 +45,7 @@
 
     .home {
       text-align: center;
-      font-size: 40px;
-      color: rgb(79, 79, 79);
+      font-size: 48px;
+      color: whitesmoke;
     }
 
