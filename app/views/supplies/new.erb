@@ -13,6 +13,7 @@
       </ul>
       </div>
     <% end %>
+    <div class="courier">
     <%= f.label :name %>
     <%= f.text_field  :name%>
     <br><br>
@@ -39,7 +40,7 @@
     <%= f.label :notes %>
     <%= f.text_field "category[notes]" %>
     <br><br>
-
-    <%= f.submit %>
+</div>
+    <input type="submit" class="page-button" value="Create Supply">
 
 <% end %>

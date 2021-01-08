@@ -4,15 +4,9 @@
         <ul class="no-bullets">
         <% sc.supplies.each do |s| %>
             <li class="appear"><%= link_to s.name, supply_path(s) %></li>
-            <ul>
-            <% if s.notes != "" %>
-                <li><%= s.notes%></li>
-            <% end %>
-            <li class="hover">Last Updated: <%= s.updated_at.strftime("%x") %></li>
-            </ul>
         <% end %>
         </ul>
     <% end %>
 <% end %>
 
-<%= link_to "Log Supply", new_supply_path %>
+<div class="link"><%= link_to "Log Supply", new_supply_path %></div>

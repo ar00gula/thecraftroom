@@ -1,3 +1,5 @@
+<p><%= link_to "Back to Craft Category", craft_category_path(@craft.craft_category) %></p>
+
 <h2 class="page-heading"><%= @craft.name %></h2>
 <div class="box"><h3>Notes: <%= @craft.notes %></h3></div>
 <h4 class="list">Supplies</h4>
@@ -18,6 +20,5 @@
 <p class="link"><%= link_to "Assign Supplies", edit_craft_path(@craft) %></p>
 <p class="link"><%= link_to "Log New Supplies", new_supply_path %></p>
 
-<p class="back-link"><%= link_to "Back to Craft Category", craft_category_path(@craft.craft_category) %></p>
 
 

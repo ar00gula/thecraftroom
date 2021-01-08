@@ -1,7 +1,7 @@
 <p><%=link_to "Back to Supply Categories", supply_categories_path %></p>
 
 <h2 class="page-heading"><%= @supply.name %></h2>
-<h3 class="category link"><%= link_to  @supply.supply_category.name, supply_category_path(@supply.supply_category_id) %></h3>
+<h3 class="category link">Category: <%= link_to  @supply.supply_category.name, supply_category_path(@supply.supply_category_id) %></h3>
 <ul class="no-bullets">
     <h4>Notes:</h4>
         <% if @supply.notes != "" %>
@@ -10,7 +10,7 @@
 
     <%= form_with model: @supply, local: true do |f| %>
     <h4 class="inline">In Stock?</h4>
-    <%= f.submit "Update"%>
+    <input type="submit" class="page-button" value="Update">
     <ul>
         <div class="inline">
             <%= f.radio_button :in_stock, true, :checked => @supply.in_stock==true %>
