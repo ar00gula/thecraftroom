@@ -75,7 +75,7 @@ h4 {
 
   .wrapper {
     margin: auto auto;
-    padding: 1.5% 2.25%; /* 18px / 800px */
+    padding: 1.5% 2.25%;
     width: 90%;
   }
 
@@ -83,6 +83,10 @@ h4 {
     position: fixed;
     left: 5%;
     bottom: 5%;
+  }
+
+  .container {
+    padding-bottom: 65%;
   }
 
 //BUTTON STYLING

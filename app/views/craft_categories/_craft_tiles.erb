@@ -1,3 +1,5 @@
+<div class="container">
+
 <% craft_categories.each do |cat| %>
     <div class="craft-container list <%=cat.name.downcase.split(" ").join%>">
         <a href=<%=craft_category_path(cat)%>>
@@ -8,3 +10,5 @@
         </a>
     </div>
 <% end %>
+
+</div>
