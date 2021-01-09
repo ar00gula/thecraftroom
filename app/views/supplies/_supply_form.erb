@@ -1,21 +1,18 @@
-<p><%=link_to "Back to Supplies", supplies_path %></p>
-
-<%= form_with model: @supply do |f| %>
-    <% if @supply.errors.any? %>
+    <% if supply.errors.any? %>
       <div id="error_explanation">
         <h2>
-          <%= pluralize(@supply.errors.count, "error") %>
+          <%= pluralize(supply.errors.count, "error") %>
           prohibited this supply from being saved:
         </h2>
 
       <ul>
-        <% @supply.errors.full_messages.each do |msg| %>
+        <% supply.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
       <% end %>
       </ul>
       </div>
     <% end %>
-    <div class="courier">
+<div class="courier">
     <%= f.label :name %>
     <%= f.text_field  :name%>
     <br><br>
@@ -35,7 +32,8 @@
     </label>
 
     <p>Don't see your supply category? Select "Create New" in the dropdown and add details here!</p>
-    <div>New Category Name</div> <div class="hidden">Why can't I have multiple capitalizations in labels, Rails?</div>
+
+    <div>New Category Name</div>
     <%= f.text_field "category[name]" %>
     <br><br>
     
@@ -43,6 +41,3 @@
     <%= f.text_field "category[notes]" %>
     <br><br>
 </div>
-    <input type="submit" class="page-button" value="Create Supply">
-
-<% end %>

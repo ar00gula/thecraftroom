@@ -1,18 +1,18 @@
 <p><%= link_to "Back to Craft Category", craft_category_path(@craft.craft_category) %></p>
 
-<h2 class="page-heading"><%= @craft.name %></h2>
-<div class="box"><h3>Notes: <%= @craft.notes %></h3></div>
+<h2 class="page-heading courier"><%= @craft.name %></h2>
+<h3 class="indent">Notes: <%= @craft.notes %></h3>
 <h4 class="list">Supplies</h4>
 <ul>
 <% @craft.supplies.each do |supply| %>
     <% if supply.in_stock %>
-        <li><%= supply.name %></li>
+        <li><%= link_to supply.name, supply_path(supply) %></li>
     <% else %>
-        <li class="strike"><%= supply.name %></li>
+        <li class="strike"><%= link_to supply.name, supply_path(supply) %></li>
     <% end %>
 <% end %>
 </ul>
-
+<br>
 <p><%= "#{@craft.supplies.in_stock.count} of #{@craft.supplies.count} supplies in stock." %></p>
 
 <br>

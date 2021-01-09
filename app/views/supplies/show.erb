@@ -18,18 +18,16 @@
             <%= f.radio_button :in_stock, false, :checked => !@supply.in_stock==true %>
             <%= f.label :in_stock, "No" %>
         </div>
+        <br><br>Last Updated: <%= @supply.updated_at %>
+
     </ul>
     <%end%>
 </ul>
 
+<br>
 
 <p class="link"><%= link_to "Edit Supply Info", edit_supply_path(@supply) %></p>
 <p class ="link"><a href=<%=supply_path(@supply)%> data-confirm="Are you sure you wish to delete this supply?" data-method="delete">Delete Supply?</a></p>
 
 <br>
 <br>
-
-
-<br>
-<br>
-<footer>Most Recent Update: <%= @supply.updated_at %></footer>

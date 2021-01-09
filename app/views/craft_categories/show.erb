@@ -1,4 +1,6 @@
-<h2 class="page-heading"><%= @category.name %></h2>
+<p><%= link_to "Back to Categories", craft_categories_path %></p>
+
+<h2 class="page-heading courier"><%= @category.name %></h2>
 
 <ul>
     <% @category.crafts.sort.each do |craft| %>
@@ -8,9 +10,7 @@
 
 <br><br><br>
 <div class="link"><%= link_to "Log New Activity", new_craft_category_craft_path(@category) %></div>
-
-<div class="page-footer">
-    <p class="message"><%= @message %></p>
-    <h4>Favorite Category?</h4>
-    <%= render partial: "application/radio_buttons", locals: {category: @category} %>
-</div>
+<br>
+<p class="message"><%= @message %></p>
+<h4>Favorite Category?</h4>
+<%= render partial: "application/radio_buttons", locals: {category: @category} %>
