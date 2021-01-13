@@ -1,4 +1,6 @@
-<h2><%= @category.name %></h2>
+<p><%=link_to "Back to Categories", supply_categories_path %></p>
+
+<h1 class="courier"><%= @category.name %></h1>
 <ul>
 <% @category.supplies.each do |supply| %>
     <li><%= link_to supply.name, supply_path(supply) %></li>

@@ -1,6 +1,7 @@
 <p><%=link_to "Back to Supplies", supplies_path %></p>
 
 <%= form_with model: @supply do |f| %>
+    <div class="indent">
     <% if @supply.errors.any? %>
       <div id="error_explanation">
         <h2>
@@ -43,6 +44,6 @@
     <%= f.text_field "category[notes]" %>
     <br><br>
 </div>
+</div>
     <input type="submit" class="page-button" value="Create Supply">
-
 <% end %>

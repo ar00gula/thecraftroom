@@ -1,11 +1,1 @@
-<% @supply_categories.each do |cat| %>
-    <% if cat.name != "Create New" %>
-        <div class="supply-container">
-            <a href=<%=supply_category_path(cat)%>>
-            <div class="supply-cat">
-                <%= cat.name %>
-            </div>
-            </a>
-        </div>
-    <% end %>
-<% end %>
+  <%= render partial: "supply_categories/supply_category", locals: {craft_categories: @supply_categories} %>

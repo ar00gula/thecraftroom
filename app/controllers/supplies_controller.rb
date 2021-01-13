@@ -21,6 +21,7 @@ class SuppliesController < ApplicationController
   end
 
   def create
+    
     @supply = Supply.new(supply_params)
     @supply.name = @supply.name.capitalize
     @supply.user_id = current_user.id

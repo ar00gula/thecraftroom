@@ -1,7 +1,9 @@
+<p><%= link_to "Back to Craft", craft_path(@craft) %></p>
+
 <h2 class="page-heading"><%= @craft.name %></h2>
 <h4 class="list">Add Supply</h4>
-<div>
 <%= form_with model: @craft do |f| %>
+<div>
     <% if @craft.errors.any? %>
         <div id="error_explanation">
         <h2>
@@ -15,21 +17,21 @@
     </ul>
     </div>
     <% end %>
-<div class="hidden"> does it need to be ' label_tag "#{sc.name}" ' for params reasons? We'll see!! I wanna be able to click the name of the category and have the supplies appear and disappear OR ACTUALLY, i wanna have a find-or-create supply bar UGH I JUST WANT THINGS TO LOOK NICE </div>
     <% @supply_categories.each do |sc| %>
-    <% unless sc.name == "Create New" %>
-    <div class="no_bullets">
-            <%= sc.name %>
+        <% unless sc.name == "Create New" %>
+            <div class="no_bullets">
+                <%= sc.name %>
                 <li><%= f.collection_check_boxes :supply_ids, sc.supplies, :id, :name do |supply| %>
-            <%= supply.label(class: 'checkbox_container') {supply.check_box + " " + supply.text} %>
-            </div>
-        <% end %></li>    
-        <% end %>
-        <% end %>
+                <%= supply.label(class: 'checkbox_container') {supply.check_box + " " + supply.text} %>
+            </li>
+        <% end %>   
+    <% end %><br>
+    <% end %>
+    </div>
 
+</div>
     <p>Don't see your supply? Add it <b><%= link_to "here!", new_supply_path %></b></p>
+    <input type="submit" class="page-button" value="Edit Supplies">
 
-    <%= f.submit "Edit Supplies"%>
 
 <% end %>
-</div>

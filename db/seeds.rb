@@ -26,7 +26,7 @@ craft_category_list ={
   "decorative objects" => {
     :name => "Decorative Objects",
     :notes => "table centerpieces, cute things, etc"
-  }
+  },
 
   "other" => {
     :name => "Other",

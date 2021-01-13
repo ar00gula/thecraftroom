@@ -1,17 +1,23 @@
+<div class="container">
 <% craft_categories.each do |cat| %>
     <div class="craft-container list <%=cat.name.downcase.split(" ").join%>">
         <a href=<%=craft_category_path(cat)%>>
-        <% if cat.name.split.count > 1 %>
-            <div class="craft-cat">
-                    <%= cat.name.split(" ")[0] %><br>
-                    <%= cat.name.split(" ")[1] %>
-            </div>
-        <% else %>
-            <div class="craft-cat">
-                    <%= cat.name.split(" ")[0] %>
-                    <br><br>
-                    </div>
+        <% unless cat.name == "Create New" %>
+            <% if cat.name.split.count > 1 %>
+                <div class="craft-cat">
+                        <%= cat.name.split(" ")[0] %><br>
+                        <%= cat.name.split(" ")[1] %>
+                        <%= cat.name.split(" ")[2] %>
+                </div>
+            <% else %>
+                <div class="craft-cat">
+                        <%= cat.name.split(" ")[0] %>
+                        <br><br>
+                        </div>
+            <% end %>
         <% end %>
         </a>
     </div>
 <% end %>
+</div>
+

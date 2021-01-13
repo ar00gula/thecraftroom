@@ -1,7 +1,6 @@
 <p><%=link_to "Back to Supplies", supplies_path %></p>
-<div class="indent">
 <%= form_with model: @supply do |f| %>
-    <div class="courier">
+    <div class="courier bold indent">
 
     <%= f.label :name %>
     <%= f.text_field  :name%>
@@ -24,10 +23,12 @@
         <%= f.check_box :in_stock %>
         <span class="slider round"></span>
     </label>
+    <br>
+    <br>
+    </div>
 
-    <br><br>
-
-    <p>Not enough categories for you? Select "Create New" in the dropdown and add details here!</p>
+    <p>Not enough categories for you? Select "Create New" in the dropdown and add details here!</p><br>
+    <div class="courier bold indent">
     <div>New Category Name</div> <div class="hidden">Why can't I have multiple capitalizations in labels, Rails?</div>
     <%= f.text_field "category[name]" %>
     <br><br>
@@ -39,4 +40,3 @@
     <input type="submit" class="page-button" value="Update Supply">
 
 <% end %>
-</div>

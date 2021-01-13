@@ -1,3 +1,6 @@
+<p><%=link_to "Back to Categories", supply_categories_path %></p>
+<h2 class="page-heading courier">All Supplies</h2>
+<div class="indent">
 <% @categories.each do |sc| %>
     <% if sc.supplies.count > 0 %>
         <h3 class="courier"><%= link_to sc.name, supply_category_path(sc)%></h3>
@@ -8,5 +11,6 @@
         </ul>
     <% end %>
 <% end %>
-
+</div>
+<br>
 <div class="link"><%= link_to "Log Supply", new_supply_path %></div>
