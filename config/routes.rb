@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
   get '/home', to: 'users#show'
 
+  get 'leaderboard', to: 'application#leaderboard'
+
 
   get '/auth/facebook/callback' => 'users#create_facebook'
   

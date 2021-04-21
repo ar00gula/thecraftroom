@@ -143,4 +143,5 @@ supply_list.each do |name, supply_hash|
   end
 
 
-admin = User.create(username: "admin", password: "wahoo!")
+ari = Player.create(name: "Ari")
+

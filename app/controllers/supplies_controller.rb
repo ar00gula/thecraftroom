@@ -23,10 +23,10 @@ class SuppliesController < ApplicationController
   def create
     
     @supply = Supply.new(supply_params)
-    @supply.name = @supply.name.capitalize
+    @supply.name = @supply.name.capitalize #do as before save action in model
     @supply.user_id = current_user.id
     if @supply.save
-      if @supply.supply_category == SupplyCategory.find_by(name: "Create New")
+      if @supply.supply_category == SupplyCategory.find_by(name: "Create New") #do this before first @supply.save call, can be done through nested form
           @supply.supply_category_id = SupplyCategory.create(supply_category_params[:category]).id
           @supply.save
               #maybe add functionality that catches if you add a new category that already exists

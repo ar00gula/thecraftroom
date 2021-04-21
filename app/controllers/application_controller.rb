@@ -2,8 +2,13 @@ class ApplicationController < ActionController::Base
     helper_method :current_user, :logged_in?, :no_double_dipping
     before_action :no_double_dipping, only: :homepage
 
-    def homepage
+    def homepage # should go in a static controller
         render :layout => "homepage"
+    end
+
+    def leaderboard
+        @users = User.all
+
     end
 
     def current_user

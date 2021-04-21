@@ -28,7 +28,6 @@ class CraftsController < ApplicationController
     end
   end
 
-  #this leaves this open to tampering. what i want is a multipage form but i want to build this out before i ask about it)
   def edit
     @craft = Craft.find(params[:id])
     @supplies = Supply.all
@@ -40,12 +39,12 @@ class CraftsController < ApplicationController
     craft = Craft.find(params[:id])
 
     if craft.supplies
-      craft_supplies_params[:supply_ids].each do |supply_id| 
+      craft_supplies_params[:supply_ids].each do |supply_id| #do this as model setter method
         if !supply_id.empty? && !craft.supplies.find_by_id(supply_id)
             craft.supplies << Supply.find_by_id(supply_id)
         end
   
-        craft.supplies.each do |supply|
+        craft.supplies.each do |supply| #rails should do most of this for me - check documentation
           if !craft_supplies_params[:supply_ids].include?(supply.id.to_s)
               craft.supplies - [supply]
               if CraftsSupply.find_by(:supply_id => supply.id, :craft_id => craft.id)
